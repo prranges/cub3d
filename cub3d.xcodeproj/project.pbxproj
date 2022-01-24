@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		243CA0C3278C0EA00002A787 /* cub3d.c in Sources */ = {isa = PBXBuildFile; fileRef = 243CA0C2278C0EA00002A787 /* cub3d.c */; };
 		243CA0C8278C22BB0002A787 /* rectangle.cub in Sources */ = {isa = PBXBuildFile; fileRef = 243CA0C7278C22BB0002A787 /* rectangle.cub */; };
 		243CA0CA278C23290002A787 /* square.cub in Sources */ = {isa = PBXBuildFile; fileRef = 243CA0C9278C23290002A787 /* square.cub */; };
 		243CA0D2278C2FED0002A787 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 243CA0D1278C2FEC0002A787 /* Makefile */; };
+		246DF329279D581700F1457F /* keys.c in Sources */ = {isa = PBXBuildFile; fileRef = 246DF328279D581700F1457F /* keys.c */; };
+		24E482F2279D494C007FA83E /* cub3d.c in Sources */ = {isa = PBXBuildFile; fileRef = 24E482F1279D494C007FA83E /* cub3d.c */; };
+		24FA472C279E87D400175C37 /* walls.c in Sources */ = {isa = PBXBuildFile; fileRef = 24FA472B279E87D400175C37 /* walls.c */; };
+		24FA472E279E87E900175C37 /* floor.c in Sources */ = {isa = PBXBuildFile; fileRef = 24FA472D279E87E900175C37 /* floor.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +31,6 @@
 /* Begin PBXFileReference section */
 		243CA0B7278C0E6E0002A787 /* cub3d */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cub3d; sourceTree = BUILT_PRODUCTS_DIR; };
 		243CA0C1278C0EA00002A787 /* cub3d.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cub3d.h; sourceTree = "<group>"; };
-		243CA0C2278C0EA00002A787 /* cub3d.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cub3d.c; sourceTree = "<group>"; };
 		243CA0C7278C22BB0002A787 /* rectangle.cub */ = {isa = PBXFileReference; lastKnownFileType = text; path = rectangle.cub; sourceTree = "<group>"; };
 		243CA0C9278C23290002A787 /* square.cub */ = {isa = PBXFileReference; lastKnownFileType = text; path = square.cub; sourceTree = "<group>"; };
 		243CA0CB278C2BF40002A787 /* chest.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chest.xpm; sourceTree = "<group>"; };
@@ -40,6 +42,10 @@
 		243CA0D1278C2FEC0002A787 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		243CA103278C3C5F0002A787 /* get_next_line */ = {isa = PBXFileReference; lastKnownFileType = folder; name = get_next_line; path = ../../../../goinfre/prranges/cub3d/get_next_line; sourceTree = "<group>"; };
 		243CA104278C3C5F0002A787 /* libft */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libft; path = ../../../../goinfre/prranges/cub3d/libft; sourceTree = "<group>"; };
+		246DF328279D581700F1457F /* keys.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = keys.c; sourceTree = "<group>"; };
+		24E482F1279D494C007FA83E /* cub3d.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cub3d.c; sourceTree = "<group>"; };
+		24FA472B279E87D400175C37 /* walls.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = walls.c; sourceTree = "<group>"; };
+		24FA472D279E87E900175C37 /* floor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = floor.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +67,10 @@
 				243CA0C5278C1F0C0002A787 /* maps */,
 				243CA0C4278C11F70002A787 /* textures */,
 				243CA0C1278C0EA00002A787 /* cub3d.h */,
-				243CA0C2278C0EA00002A787 /* cub3d.c */,
+				24E482F1279D494C007FA83E /* cub3d.c */,
+				24FA472B279E87D400175C37 /* walls.c */,
+				24FA472D279E87E900175C37 /* floor.c */,
+				246DF328279D581700F1457F /* keys.c */,
 				243CA0D1278C2FEC0002A787 /* Makefile */,
 				243CA0B8278C0E6E0002A787 /* Products */,
 			);
@@ -155,9 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				243CA0C3278C0EA00002A787 /* cub3d.c in Sources */,
+				246DF329279D581700F1457F /* keys.c in Sources */,
+				24FA472C279E87D400175C37 /* walls.c in Sources */,
 				243CA0CA278C23290002A787 /* square.cub in Sources */,
+				24E482F2279D494C007FA83E /* cub3d.c in Sources */,
 				243CA0D2278C2FED0002A787 /* Makefile in Sources */,
+				24FA472E279E87E900175C37 /* floor.c in Sources */,
 				243CA0C8278C22BB0002A787 /* rectangle.cub in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

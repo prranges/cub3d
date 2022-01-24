@@ -12,142 +12,164 @@
 
 #include "cub3d.h"
 
-	int	map[24][24] =
-	{
-		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,2,2,2,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
-		{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,3,0,0,0,3,0,0,0,1},
-		{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,2,2,0,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,4,0,0,0,0,5,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,4,0,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
-	};
-
-int	close_win(t_data *data)
+int map_array[MAP_W][MAP_H] =
 {
-	int	i;
+	{8,8,8,8,8,8,8,8,8,8,8,4,4,6,4,4,6,4,6,4,4,4,6,4},
+	{8,0,0,0,0,0,0,0,0,0,8,4,0,0,0,0,0,0,0,0,0,0,0,4},
+	{8,0,3,3,0,0,0,0,0,8,8,4,0,0,0,0,0,0,0,0,0,0,0,6},
+	{8,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6},
+	{8,0,3,3,0,0,0,0,0,8,8,4,0,0,0,0,0,0,0,0,0,0,0,4},
+	{8,0,0,0,0,0,0,0,0,0,8,4,0,0,0,0,0,6,6,6,0,6,4,6},
+	{8,8,8,8,0,8,8,8,8,8,8,4,4,4,4,4,4,6,0,0,0,0,0,6},
+	{7,7,7,7,0,7,7,7,7,0,8,0,8,0,8,0,8,4,0,4,0,6,0,6},
+	{7,7,0,0,0,0,0,0,7,8,0,8,0,8,0,8,8,6,0,0,0,0,0,6},
+	{7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,6,0,0,0,0,0,4},
+	{7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,6,0,6,0,6,0,6},
+	{7,7,0,0,0,0,0,0,7,8,0,8,0,8,0,8,8,6,4,6,0,6,6,6},
+	{7,7,7,7,0,7,7,7,7,8,8,4,0,6,8,4,8,3,3,3,0,3,3,3},
+	{2,2,2,2,0,2,2,2,2,4,6,4,0,0,6,0,6,3,0,0,0,0,0,3},
+	{2,2,0,0,0,0,0,2,2,4,0,0,0,0,0,0,4,3,0,0,0,0,0,3},
+	{2,0,0,0,0,0,0,0,2,4,0,0,0,0,0,0,4,3,0,0,0,0,0,3},
+	{1,0,0,0,0,0,0,0,1,4,4,4,4,4,6,0,6,3,3,0,0,0,3,3},
+	{2,0,0,0,0,0,0,0,2,2,2,1,2,2,2,6,6,0,0,5,0,5,0,5},
+	{2,2,0,0,0,0,0,2,2,2,0,0,0,2,2,0,5,0,5,0,0,0,5,5},
+	{2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,5,0,5,0,5,0,5,0,5},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5},
+	{2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,5,0,5,0,5,0,5,0,5},
+	{2,2,0,0,0,0,0,2,2,2,0,0,0,2,2,0,5,0,5,0,0,0,5,5},
+	{2,2,2,2,1,2,2,2,2,2,2,1,2,2,2,5,5,5,5,5,5,5,5,5}
+};
 
-	i = -1;
-//	while (data->map.map[++i])
-//		free(data->map.map[i]);
-	if (data->mlx)
+void	draw(t_data *data)
+{
+    int x;
+    int y;
+    
+    y = 0;
+	while (y < WIN_H)
 	{
-		mlx_clear_window(data->mlx, data->win);
-		mlx_destroy_window(data->mlx, data->win);
+        x = 0;
+		while (x < WIN_W)
+		{
+			data->img.data[y * WIN_W + x] = data->screen_buf[y][x];
+            x++;
+		}
+        y++;
 	}
-	exit (0);
-}
-
-void	read_xpm(t_data *data)
-{
-	int		w;
-	int		h;
-
-	data->txtr->t_brick = mlx_xpm_file_to_image(data->mlx, BRICK, &w, &h);
-	data->txtr->t_blue = mlx_xpm_file_to_image(data->mlx, BLUE, &w, &h);
-	data->txtr->t_wood = mlx_xpm_file_to_image(data->mlx, WOOD, &w, &h);
-	data->txtr->t_gray = mlx_xpm_file_to_image(data->mlx, GRAY, &w, &h);
-}
-
-void	put_line(t_data *data, int x, int y_start, int y_end, int color)
-{
-	int	y;
-
-	y = y_start;
-	while (y <= y_end)
-	{
-		mlx_pixel_put(data->mlx, data->win, x, y, color);
-		y++;
-	}
+	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
 }
 
 int	game_loop(t_data *data)
 {
-	int	x;
+	floor_casting(data);
+	wall_casting(data);
+	draw(data);
+	key_update(data);
+	return (0);
+}
+
+void	load_image(t_data *data, int *texture, char *path, t_img *img)
+{
+	int x;
+	int y;
 	
-	x = -1;
-//	while (++x < W)
-//	{
-//		put_line(data, x, 180, 300, 0xFFF000);
-//	}
-	
-	while (++x < W)
+	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->img_w, &img->img_h);
+	img->data = (int *)mlx_get_data_addr(img->img, &img->bpp, &img->size_l, &img->endian);
+	y = 0;
+	while (y < img->img_h)
+	{
+		x = 0;
+		while (x < img->img_w)
 		{
-//			put_line(data, x, 180, 300, 0xFFF000);
-			mlx_put_image_to_window(data->mlx, data->win, data->txtr->t_brick, x*64, 200);
+			texture[img->img_w * y + x] = img->data[img->img_w * y + x];
+			x++;
 		}
-	return (0);
+		y++;
+	}
+	mlx_destroy_image(data->mlx, img->img);
 }
 
-char	key_move(t_data *data, char c)
+void	load_texture(t_data *data)
 {
-	(void)data;
-	if (c == 'L')
-		;
-	if (c == 'D')
-		;
-	if (c == 'U')
-		;
-	if (c == 'R')
-		;
-	return (c);
+	t_img	img;
+
+	load_image(data, data->txtrs[0], "textures/eagle.xpm", &img);
+	load_image(data, data->txtrs[1], "textures/redbrick.xpm", &img);
+	load_image(data, data->txtrs[2], "textures/purplestone.xpm", &img);
+	load_image(data, data->txtrs[3], "textures/greystone.xpm", &img);
+	load_image(data, data->txtrs[4], "textures/bluestone.xpm", &img);
+	load_image(data, data->txtrs[5], "textures/mossy.xpm", &img);
+	load_image(data, data->txtrs[6], "textures/wood.xpm", &img);
+	load_image(data, data->txtrs[7], "textures/colorstone.xpm", &img);
+	load_image(data, data->txtrs[8], "textures/barrel.xpm", &img);
+	load_image(data, data->txtrs[9], "textures/pillar.xpm", &img);
+	load_image(data, data->txtrs[10], "textures/greenlight.xpm", &img);
 }
 
-int	key_handler(int key, t_data *data)
+void data_init(t_data *data)
 {
-	if (key == ESC)
-		close_win(data);
-	
-	if (key == LEFT)
-		key_move(data, 'L');
-	if (key == DOWN)
-		key_move(data, 'D');
-	if (key == UP)
-		key_move(data, 'U');
-	if (key == RIGHT)
-		key_move(data, 'R');
-	return (key);
+	data->mlx = mlx_init();
+	data->player_pos_x = 22.0; // начальная позиция x и y
+	data->player_pos_y = 11.5;
+	data->player_dir_x = -1.0; //начальный вектор направления
+	data->player_dir_y = 0.0;
+	data->cam_plane_x = 0.0; //версия плоскости камеры для 2d raycaster
+	data->cam_plane_y = 0.66;
+	data->key_left = 0;
+	data->key_up = 0;
+	data->key_down = 0;
+	data->key_right = 0;
+	data->key_esc = 0;
+	data->move_speed = 0.05;
+	data->rot_speed = 0.05;
+	data->win = mlx_new_window(data->mlx, WIN_W, WIN_H, "mlx");
+	data->img.img = mlx_new_image(data->mlx, WIN_W, WIN_H);
+	data->img.data = (int *)mlx_get_data_addr(data->img.img, &data->img.bpp, \
+											  &data->img.size_l, &data->img.endian);
 }
 
-int	main()
+int	main(void)
 {
-	t_data	data;
+	t_data data;
+	int j;
+	int i;
 	
-	data.mlx = mlx_init();
-	data.pos_x = 22.0;
-	data.pos_y = 11.5;
-	data.dir_x = -1.0;
-	data.dir_y = 0.0;
-	data.plane_x = 0.0;
-	data.plane_y = 0.66;
-	data.move_speed = 0.05;
-	data.rotation_speed = 0.05;
-	data.win = mlx_new_window(data.mlx, W, H, "cub3d");
-	
-	read_xpm(&data);
-	
-	mlx_loop_hook(data.mlx, &game_loop, (void *)&data);
-	mlx_hook(data.win, 2, 0, &key_handler, (void *)&data);
-	mlx_hook(data.win, 17, 0L, close_win, (void *)&data);
+	data_init(&data);
+	j = 0;
+//	while (j < WIN_H)
+//	{
+//		i = 0;
+//		while (i < WIN_W)
+//		{
+//			data.screen_buf[j][i] = 0;
+//			i++;
+//		}
+//		j++;
+//	}
+	if (!(data.txtrs = (int **)malloc(sizeof(int *) * 11))) // 11 текструр
+		return (-1);
+	i = 0;
+	while (i < 11)
+	{
+		if (!(data.txtrs[i] = (int *)malloc(sizeof(int) * (TXTR_H * TXTR_W))))
+			return (-1);
+		i++;
+	}
+//	j = 0;
+//	while (j < 11)
+//	{
+//		i = 0;
+//		while (i < TXTR_H * TXTR_W)
+//		{
+//			data.txtrs[j][i] = 0;
+//			i++;
+//		}
+//		j++;
+//	}
+
+	load_texture(&data);
+	mlx_loop_hook(data.mlx, &game_loop, &data);
+	mlx_hook(data.win, PRESS, 0, &key_press, &data);
+	mlx_hook(data.win, RELEASE, 0, &key_release, &data);
 	mlx_loop(data.mlx);
-	
-//	printf("Hello world!\n");
-	return (0);
 }

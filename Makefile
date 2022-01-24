@@ -16,6 +16,9 @@ LIBFT	= ./libft/libft.a
 LFT_DIR = ./libft
 
 SRCS	= cub3d.c \
+		  keys.c \
+		  walls.c \
+		  floor.c \
 	  get_next_line/get_next_line.c \
 	  get_next_line/get_next_line_utils.c
 
