@@ -11,9 +11,10 @@
 		243CA0CA278C23290002A787 /* square.cub in Sources */ = {isa = PBXBuildFile; fileRef = 243CA0C9278C23290002A787 /* square.cub */; };
 		243CA0D2278C2FED0002A787 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 243CA0D1278C2FEC0002A787 /* Makefile */; };
 		246DF329279D581700F1457F /* keys.c in Sources */ = {isa = PBXBuildFile; fileRef = 246DF328279D581700F1457F /* keys.c */; };
+		24AF285027A029C00037B102 /* walls_02.c in Sources */ = {isa = PBXBuildFile; fileRef = 24AF284F27A029C00037B102 /* walls_02.c */; };
 		24E482F2279D494C007FA83E /* cub3d.c in Sources */ = {isa = PBXBuildFile; fileRef = 24E482F1279D494C007FA83E /* cub3d.c */; };
-		24FA472C279E87D400175C37 /* walls.c in Sources */ = {isa = PBXBuildFile; fileRef = 24FA472B279E87D400175C37 /* walls.c */; };
-		24FA472E279E87E900175C37 /* floor.c in Sources */ = {isa = PBXBuildFile; fileRef = 24FA472D279E87E900175C37 /* floor.c */; };
+		24F6F0F427A124B300B3D461 /* mouse.c in Sources */ = {isa = PBXBuildFile; fileRef = 24F6F0F327A124B300B3D461 /* mouse.c */; };
+		24FA472C279E87D400175C37 /* walls_01.c in Sources */ = {isa = PBXBuildFile; fileRef = 24FA472B279E87D400175C37 /* walls_01.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,9 +44,10 @@
 		243CA103278C3C5F0002A787 /* get_next_line */ = {isa = PBXFileReference; lastKnownFileType = folder; name = get_next_line; path = ../../../../goinfre/prranges/cub3d/get_next_line; sourceTree = "<group>"; };
 		243CA104278C3C5F0002A787 /* libft */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libft; path = ../../../../goinfre/prranges/cub3d/libft; sourceTree = "<group>"; };
 		246DF328279D581700F1457F /* keys.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = keys.c; sourceTree = "<group>"; };
+		24AF284F27A029C00037B102 /* walls_02.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = walls_02.c; sourceTree = "<group>"; };
 		24E482F1279D494C007FA83E /* cub3d.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cub3d.c; sourceTree = "<group>"; };
-		24FA472B279E87D400175C37 /* walls.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = walls.c; sourceTree = "<group>"; };
-		24FA472D279E87E900175C37 /* floor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = floor.c; sourceTree = "<group>"; };
+		24F6F0F327A124B300B3D461 /* mouse.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mouse.c; sourceTree = "<group>"; };
+		24FA472B279E87D400175C37 /* walls_01.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = walls_01.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +70,10 @@
 				243CA0C4278C11F70002A787 /* textures */,
 				243CA0C1278C0EA00002A787 /* cub3d.h */,
 				24E482F1279D494C007FA83E /* cub3d.c */,
-				24FA472B279E87D400175C37 /* walls.c */,
-				24FA472D279E87E900175C37 /* floor.c */,
+				24FA472B279E87D400175C37 /* walls_01.c */,
+				24AF284F27A029C00037B102 /* walls_02.c */,
 				246DF328279D581700F1457F /* keys.c */,
+				24F6F0F327A124B300B3D461 /* mouse.c */,
 				243CA0D1278C2FEC0002A787 /* Makefile */,
 				243CA0B8278C0E6E0002A787 /* Products */,
 			);
@@ -165,11 +168,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				246DF329279D581700F1457F /* keys.c in Sources */,
-				24FA472C279E87D400175C37 /* walls.c in Sources */,
+				24F6F0F427A124B300B3D461 /* mouse.c in Sources */,
+				24AF285027A029C00037B102 /* walls_02.c in Sources */,
+				24FA472C279E87D400175C37 /* walls_01.c in Sources */,
 				243CA0CA278C23290002A787 /* square.cub in Sources */,
 				24E482F2279D494C007FA83E /* cub3d.c in Sources */,
 				243CA0D2278C2FED0002A787 /* Makefile in Sources */,
-				24FA472E279E87E900175C37 /* floor.c in Sources */,
 				243CA0C8278C22BB0002A787 /* rectangle.cub in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

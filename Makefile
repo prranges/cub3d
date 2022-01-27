@@ -17,15 +17,16 @@ LFT_DIR = ./libft
 
 SRCS	= cub3d.c \
 		  keys.c \
-		  walls.c \
-		  floor.c \
+		  mouse.c \
+		  walls_01.c \
+		  walls_02.c \
 	  get_next_line/get_next_line.c \
 	  get_next_line/get_next_line_utils.c
 
 CC	= gcc
 CFLAGS 	= -Wall -Wextra -Werror
 
-MLX 	= -lmlx -framework OpenGL -framework AppKit
+MLX 	= -lmlx -L ./mlx -framework OpenGL -framework AppKit
 
 RM	= rm -rf
 

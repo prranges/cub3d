@@ -14,33 +14,86 @@
 
 int map_array[MAP_W][MAP_H] =
 {
-	{8,8,8,8,8,8,8,8,8,8,8,4,4,6,4,4,6,4,6,4,4,4,6,4},
-	{8,0,0,0,0,0,0,0,0,0,8,4,0,0,0,0,0,0,0,0,0,0,0,4},
-	{8,0,3,3,0,0,0,0,0,8,8,4,0,0,0,0,0,0,0,0,0,0,0,6},
-	{8,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6},
-	{8,0,3,3,0,0,0,0,0,8,8,4,0,0,0,0,0,0,0,0,0,0,0,4},
-	{8,0,0,0,0,0,0,0,0,0,8,4,0,0,0,0,0,6,6,6,0,6,4,6},
-	{8,8,8,8,0,8,8,8,8,8,8,4,4,4,4,4,4,6,0,0,0,0,0,6},
-	{7,7,7,7,0,7,7,7,7,0,8,0,8,0,8,0,8,4,0,4,0,6,0,6},
-	{7,7,0,0,0,0,0,0,7,8,0,8,0,8,0,8,8,6,0,0,0,0,0,6},
-	{7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,6,0,0,0,0,0,4},
-	{7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,6,0,6,0,6,0,6},
-	{7,7,0,0,0,0,0,0,7,8,0,8,0,8,0,8,8,6,4,6,0,6,6,6},
-	{7,7,7,7,0,7,7,7,7,8,8,4,0,6,8,4,8,3,3,3,0,3,3,3},
-	{2,2,2,2,0,2,2,2,2,4,6,4,0,0,6,0,6,3,0,0,0,0,0,3},
-	{2,2,0,0,0,0,0,2,2,4,0,0,0,0,0,0,4,3,0,0,0,0,0,3},
-	{2,0,0,0,0,0,0,0,2,4,0,0,0,0,0,0,4,3,0,0,0,0,0,3},
-	{1,0,0,0,0,0,0,0,1,4,4,4,4,4,6,0,6,3,3,0,0,0,3,3},
-	{2,0,0,0,0,0,0,0,2,2,2,1,2,2,2,6,6,0,0,5,0,5,0,5},
-	{2,2,0,0,0,0,0,2,2,2,0,0,0,2,2,0,5,0,5,0,0,0,5,5},
-	{2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,5,0,5,0,5,0,5,0,5},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5},
-	{2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,5,0,5,0,5,0,5,0,5},
-	{2,2,0,0,0,0,0,2,2,2,0,0,0,2,2,0,5,0,5,0,0,0,5,5},
-	{2,2,2,2,1,2,2,2,2,2,2,1,2,2,2,5,5,5,5,5,5,5,5,5}
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	{1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,1,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,1,0,1,1,1},
+	{1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1},
+	{1,1,1,1,0,1,1,1,1,0,1,0,1,0,1,0,1,1,0,1,0,1,0,1},
+	{1,1,0,0,0,0,0,0,1,1,0,1,0,1,0,1,1,1,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,1,0,1},
+	{1,1,0,0,0,0,0,0,1,1,0,1,0,1,0,1,1,1,1,1,0,1,1,1},
+	{1,1,1,1,2,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1,1},
+	{1,1,1,1,0,1,1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,0,0,1},
+	{1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,1,1,1,0,0,0,1,1},
+	{1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,1,0,1,0,1},
+	{1,1,0,0,0,0,0,1,1,1,0,0,0,1,1,0,1,0,1,0,0,0,1,1},
+	{1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1,0,1,0,1,0,1},
+	{1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1,0,1,0,1,0,1},
+	{1,1,0,0,0,0,0,1,1,1,0,0,0,1,1,0,1,0,1,0,0,0,1,1},
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 };
 
-void	draw(t_data *data)
+void	put_square(t_data *g, int x, int y, int color)
+{
+	int xx;
+	int yy;
+	int xxx;
+	
+	yy = 0;
+	xxx = x;
+	while (yy < MINIMAP)
+	{
+		xx = 0;
+		x = xxx;
+		while (xx < MINIMAP)
+		{
+			g->img.data[y * WIN_W + x] = color;
+			xx++;
+			x++;
+		}
+		yy++;
+		y++;
+	}
+}
+
+void	minimap(t_data *g)
+{
+    int x;
+    int y;
+	int xx;
+    int yy;
+    
+	y = 0;
+    yy = 0;
+	while (y < MAP_H)
+	{
+        x = 0;
+		xx = 0;
+		while (x < MAP_W)
+		{
+			if (map_array[y][x] == 0)
+				put_square(g, xx, yy, 13158600);
+			if (map_array[y][x] == 1)
+				put_square(g, xx, yy, 200);
+			if (map_array[y][x] == 2 || map_array[y][x] == -1)
+				put_square(g, xx, yy, 6605050);
+			put_square(g, (int)g->player_pos_y * MINIMAP, (int)g->player_pos_x * MINIMAP, 16711680);
+			xx += MINIMAP;
+			x++;
+		}
+		yy += MINIMAP;
+        y++;
+	}
+}
+
+void	draw(t_data *g)
 {
     int x;
     int y;
@@ -51,29 +104,110 @@ void	draw(t_data *data)
         x = 0;
 		while (x < WIN_W)
 		{
-			data->img.data[y * WIN_W + x] = data->screen_buf[y][x];
+			g->img.data[y * WIN_W + x] = g->screen_buf[y][x];
             x++;
 		}
         y++;
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
+	minimap(g);
+	mlx_put_image_to_window(g->mlx, g->win, g->img.img, 0, 0);
 }
 
-int	game_loop(t_data *data)
+void	floor_and_ceiling(t_data *g)
 {
-	floor_casting(data);
-	wall_casting(data);
-	draw(data);
-	key_update(data);
-	return (0);
+	int x;
+	int y;
+
+	y = WIN_H / 2 + 1;
+	while (y < WIN_H)
+	{
+		x = 0;
+		while (x < WIN_W)
+		{
+			g->screen_buf[y][x] = g->f;
+			g->screen_buf[WIN_H - y - 1][x] = g->c;
+			x++;
+		}
+		y++;
+	}
 }
 
-void	load_image(t_data *data, int *texture, char *path, t_img *img)
+void	door_close(int x, int y)
+{
+	int xx = x;
+	int yy = y;
+	
+	map_array[xx][yy] = 2;
+}
+
+void	door_open(int x, int y)
+{
+	int xx = x;
+	int yy = y;
+	
+	map_array[xx][yy] = -1;
+}
+
+void	door(t_data *g)
 {
 	int x;
 	int y;
 	
-	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->img_w, &img->img_h);
+	x = (int)g->player_pos_x;
+	y = (int)g->player_pos_y;
+	if (map_array[x][y - 1] == 2 && g->key_open)
+		door_open(x, y - 1);
+	else if (map_array[x][y + 1] == 2 && g->key_open)
+		door_open(x, y + 1);
+	else if (map_array[x + 1][y] == 2 && g->key_open)
+		door_open(x + 1, y);
+	else if (map_array[x - 1][y] == 2 && g->key_open)
+		door_open(x - 1, y);
+	else if (map_array[x][y - 1] == -1 && g->key_open)
+		door_close(x, y - 1);
+	else if (map_array[x][y + 1] == -1 && g->key_open)
+		door_close(x, y + 1);
+	else if (map_array[x + 1][y] == -1 && g->key_open)
+		door_close(x + 1, y);
+	else if (map_array[x - 1][y] == -1 && g->key_open)
+		door_close(x - 1, y);
+	g->key_open = 0;
+//}
+
+//	else
+//		g->key_open = 0;
+//	if (map_array[x][y] == 2)
+//		door_open(x, y);
+//	if (!j)
+//	{
+//		if (i++ == 60)
+//		{
+//			map_array[20][8] = 2;
+//			map_array[12][4] = 2;
+//			map_array[6][4] = 2;
+//			map_array[3][9] = 2;
+//			i = 0;
+//			j = 0;
+//		}
+//	}
+}
+
+int	game_loop(t_data *g)
+{
+	floor_and_ceiling(g);
+	door(g);
+	wall_casting(g);
+	draw(g);
+	key_update(g);
+	return (0);
+}
+
+void	load_image(t_data *g, int *texture, char *path, t_img *img)
+{
+	int x;
+	int y;
+	
+	img->img = mlx_xpm_file_to_image(g->mlx, path, &img->img_w, &img->img_h);
 	img->data = (int *)mlx_get_data_addr(img->img, &img->bpp, &img->size_l, &img->endian);
 	y = 0;
 	while (y < img->img_h)
@@ -86,55 +220,57 @@ void	load_image(t_data *data, int *texture, char *path, t_img *img)
 		}
 		y++;
 	}
-	mlx_destroy_image(data->mlx, img->img);
+	mlx_destroy_image(g->mlx, img->img);
 }
 
-void	load_texture(t_data *data)
+void	load_texture(t_data *g)
 {
 	t_img	img;
 
-	load_image(data, data->txtrs[0], "textures/eagle.xpm", &img);
-	load_image(data, data->txtrs[1], "textures/redbrick.xpm", &img);
-	load_image(data, data->txtrs[2], "textures/purplestone.xpm", &img);
-	load_image(data, data->txtrs[3], "textures/greystone.xpm", &img);
-	load_image(data, data->txtrs[4], "textures/bluestone.xpm", &img);
-	load_image(data, data->txtrs[5], "textures/mossy.xpm", &img);
-	load_image(data, data->txtrs[6], "textures/wood.xpm", &img);
-	load_image(data, data->txtrs[7], "textures/colorstone.xpm", &img);
-	load_image(data, data->txtrs[8], "textures/barrel.xpm", &img);
-	load_image(data, data->txtrs[9], "textures/pillar.xpm", &img);
-	load_image(data, data->txtrs[10], "textures/greenlight.xpm", &img);
+	load_image(g, g->txtrs[0], "textures/eagle.xpm", &img);
+	load_image(g, g->txtrs[1], "textures/redbrick.xpm", &img);
+	load_image(g, g->txtrs[2], "textures/purplestone.xpm", &img);
+	load_image(g, g->txtrs[3], "textures/greystone.xpm", &img);
+	load_image(g, g->txtrs[4], "textures/bluestone.xpm", &img);
+	load_image(g, g->txtrs[5], "textures/mossy.xpm", &img);
+	load_image(g, g->txtrs[6], "textures/wood.xpm", &img);
+	load_image(g, g->txtrs[7], "textures/colorstone.xpm", &img);
+	load_image(g, g->txtrs[8], "textures/door0.xpm", &img);
+	load_image(g, g->txtrs[9], "textures/door1.xpm", &img);
 }
 
-void data_init(t_data *data)
+void data_init(t_data *g)
 {
-	data->mlx = mlx_init();
-	data->player_pos_x = 22.0; // начальная позиция x и y
-	data->player_pos_y = 11.5;
-	data->player_dir_x = -1.0; //начальный вектор направления
-	data->player_dir_y = 0.0;
-	data->cam_plane_x = 0.0; //версия плоскости камеры для 2d raycaster
-	data->cam_plane_y = 0.66;
-	data->key_left = 0;
-	data->key_up = 0;
-	data->key_down = 0;
-	data->key_right = 0;
-	data->key_esc = 0;
-	data->move_speed = 0.05;
-	data->rot_speed = 0.05;
-	data->win = mlx_new_window(data->mlx, WIN_W, WIN_H, "mlx");
-	data->img.img = mlx_new_image(data->mlx, WIN_W, WIN_H);
-	data->img.data = (int *)mlx_get_data_addr(data->img.img, &data->img.bpp, \
-											  &data->img.size_l, &data->img.endian);
+	g->f = 14443520;
+	g->c = 10746347;
+	g->mlx = mlx_init();
+	g->player_pos_x = 22.0; // начальная позиция x и y
+	g->player_pos_y = 11.0;
+	g->player_dir_x = -1.0; //начальный вектор направления
+	g->player_dir_y = 0.0;
+	g->cam_plane_x = 0.0; //версия плоскости камеры для 2d raycaster
+	g->cam_plane_y = 0.66;
+	g->key_left = 0;
+	g->key_up = 0;
+	g->key_down = 0;
+	g->key_right = 0;
+	g->key_esc = 0;
+	g->key_open = 0;
+	g->move_speed = 0.04;
+	g->rot_speed = 0.04;
+	g->win = mlx_new_window(g->mlx, WIN_W, WIN_H, "mlx");
+	g->img.img = mlx_new_image(g->mlx, WIN_W, WIN_H);
+	g->img.data = (int *)mlx_get_data_addr(g->img.img, &g->img.bpp, \
+											  &g->img.size_l, &g->img.endian);
 }
 
 int	main(void)
 {
-	t_data data;
+	t_data g;
 	int j;
 	int i;
 	
-	data_init(&data);
+	data_init(&g);
 	j = 0;
 //	while (j < WIN_H)
 //	{
@@ -146,17 +282,17 @@ int	main(void)
 //		}
 //		j++;
 //	}
-	if (!(data.txtrs = (int **)malloc(sizeof(int *) * 11))) // 11 текструр
+	if (!(g.txtrs = (int **)malloc(sizeof(int *) * 10))) // 10 текструр
 		return (-1);
 	i = 0;
-	while (i < 11)
+	while (i < 10)
 	{
-		if (!(data.txtrs[i] = (int *)malloc(sizeof(int) * (TXTR_H * TXTR_W))))
+		if (!(g.txtrs[i] = (int *)malloc(sizeof(int) * (TXTR_H * TXTR_W))))
 			return (-1);
 		i++;
 	}
 //	j = 0;
-//	while (j < 11)
+//	while (j < 10)
 //	{
 //		i = 0;
 //		while (i < TXTR_H * TXTR_W)
@@ -167,9 +303,12 @@ int	main(void)
 //		j++;
 //	}
 
-	load_texture(&data);
-	mlx_loop_hook(data.mlx, &game_loop, &data);
-	mlx_hook(data.win, PRESS, 0, &key_press, &data);
-	mlx_hook(data.win, RELEASE, 0, &key_release, &data);
-	mlx_loop(data.mlx);
+	load_texture(&g);
+	mlx_loop_hook(g.mlx, &game_loop, &g);
+	mlx_hook(g.win, PRESS, 0, &key_press, &g);
+	mlx_hook(g.win, RELEASE, 0, &key_release, &g);
+	mlx_mouse_move(g.win, WIN_W/2, WIN_H/2);
+	mlx_mouse_hide();
+	mlx_hook(g.win, MOUSE, 0, mouse_move, &g);
+	mlx_loop(g.mlx);
 }

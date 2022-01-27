@@ -26,11 +26,13 @@
 
 # define PRESS 2
 # define RELEASE 3
+# define MOUSE 6
 # define EXIT 17
 # define TXTR_W 64
 # define TXTR_H 64
 # define MAP_W 24
 # define MAP_H 24
+# define MINIMAP 6
 # define WIN_W 640
 # define WIN_H 480
 
@@ -39,6 +41,7 @@
 # define DOWN 1
 # define UP 13
 # define RIGHT 2
+# define OPEN 49
 
 int	map_array[MAP_W][MAP_H];
 
@@ -74,31 +77,6 @@ typedef struct	s_wall
 	int y;
 }				t_wall;
 
-typedef struct	s_floor
-{
-	float ray_dir_x_0;
-	float ray_dir_y_0;
-	float ray_dir_x_1;
-	float ray_dir_y_1;
-	int p;
-	float pos_z;
-	float row_distance;
-	float floor_step_x;
-	float floor_step_y;
-	float floor_x;
-	float floor_y;
-	int cell_x;
-	int cell_y;
-	int t_x;
-	int t_y;
-	int checker_board_pattern;
-	int floor_texture;
-	int ceiling_texture;
-	int color;
-	int x;
-	int y;
-}				t_floor;
-
 typedef struct	s_img
 {
 	void	*img;
@@ -126,18 +104,31 @@ typedef struct	s_data
 	int		key_down;
 	int		key_right;
 	int		key_esc;
+	int		mouse_x;
+	int		key_open;
 	t_img	img;
 	int		screen_buf[WIN_H][WIN_W]; // буфер по размеру экрана
 	double	zBuffer[WIN_W]; // буфер по ширине экрана
 	int		**txtrs;
+	void	*p;
+	void	*m0;
+	void	*m1;
 	double	move_speed;
 	double	rot_speed;
+	int		f;
+	int		c;
 }				t_data;
 
-int		key_press(int key, t_data *data);
-int		key_release(int key, t_data *data);
-void	key_update(t_data *data);
-void	wall_casting(t_data *data);
-void	floor_casting(t_data *data);
+int		key_press(int key, t_data *g);
+int		key_release(int key, t_data *g);
+void	key_update(t_data *g);
+void	wall_casting(t_data *g);
+void	draw(t_data *g);
+void	choose_pixel(t_data *g, t_wall *w);
+void	pixels_to_screen_buf(t_data *g, t_wall *w);
+void	player_rotate_left(t_data *g);
+void	player_rotate_right(t_data *g);
+int		mouse_move(int x, int y, t_data *g);
+void	door(t_data *g);
 
 #endif
