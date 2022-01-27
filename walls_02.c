@@ -31,11 +31,10 @@ void	choose_pixel(t_data *g, t_wall *w)
 	choose_txtr(w);
 	//вычисляем значение wall_x
 	if (w->side == 0)
-		w->wall_x = g->player_pos_y + w->perp_wall_dist * w->ray_dir_y;
+		w->wall_x = g->p_pos_y + w->perp_wall_dist * w->ray_dir_y;
 	else
-		w->wall_x = g->player_pos_x + w->perp_wall_dist * w->ray_dir_x;
+		w->wall_x = g->p_pos_x + w->perp_wall_dist * w->ray_dir_x;
 	w->wall_x -= floor((w->wall_x));
-	
 	//координата x на текстуре
 	w->txtr_x = (int)(w->wall_x * (double)TXTR_W);
 	if (w->side == 0 && w->ray_dir_x > 0)
@@ -53,11 +52,13 @@ void	pixels_to_screen_buf(t_data *g, t_wall *w)
 {
 	while (w->y < w->draw_end)
 	{
-		// Приведите координату текстуры к целому числу и замаскируйте (TXTR_H - 1) в случае переполнения
+		// Приведите координату текстуры к целому числу
+		//и замаскируйте (TXTR_H - 1) в случае переполнения
 		w->txtr_y = (int)w->txtr_pos & (TXTR_H - 1);
 		w->txtr_pos += w->step;
 		w->color = g->txtrs[w->txtr_num][TXTR_H * w->txtr_y + w->txtr_x];
-		//делаем цвет темнее для y-стороны: R, G и B байт, каждый из которых делится на два с помощью "shift" и "and".
+		//делаем цвет темнее для y-стороны: R, G и B байт,
+		//каждый из которых делится на два с помощью "shift" и "and".
 		if (w->side == 1)
 			w->color = (w->color >> 1) & 8355711;
 		g->screen_buf[w->y][w->x] = w->color;
