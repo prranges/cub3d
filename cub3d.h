@@ -44,6 +44,10 @@
 # define RIGHT 2
 # define OPEN 49
 
+# ifndef BONUS
+#  define BONUS 0
+# endif
+
 int	map_array[MAP_W][MAP_H];
 
 typedef struct s_wall
@@ -118,9 +122,6 @@ typedef struct s_data
 	int		screen_buf[WIN_H][WIN_W]; // буфер по размеру экрана
 	double	z_buffer[WIN_W]; // буфер по ширине экрана
 	int		**txtrs;
-	void	*p;
-	void	*m0;
-	void	*m1;
 	double	move_speed;
 	double	rot_speed;
 	int		f;

@@ -56,7 +56,8 @@ void	draw(t_data *g)
 		}
 		y++;
 	}
-	minimap(g);
+	if (BONUS)
+		minimap(g);
 	mlx_put_image_to_window(g->mlx, g->win, g->img.img, 0, 0);
 }
 
@@ -82,7 +83,8 @@ void	floor_and_ceiling(t_data *g)
 int	game_loop(t_data *g)
 {
 	floor_and_ceiling(g);
-	door(g);
+	if (BONUS)
+		door(g);
 	wall_casting(g);
 	draw(g);
 	key_update(g);
@@ -113,7 +115,10 @@ int	main(void)
 	mlx_hook(g.win, PRESS, 0, &key_press, &g);
 	mlx_hook(g.win, RELEASE, 0, &key_release, &g);
 	mlx_mouse_move(g.win, WIN_W / 2, WIN_H / 2);
-	mlx_mouse_hide();
-	mlx_hook(g.win, MOUSE, 0, mouse_move, &g);
+	if (BONUS)
+	{
+		mlx_mouse_hide();
+		mlx_hook(g.win, MOUSE, 0, mouse_move, &g);
+	}
 	mlx_loop(g.mlx);
 }

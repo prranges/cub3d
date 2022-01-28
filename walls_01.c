@@ -34,7 +34,7 @@ void	perform_dda(t_wall *w)
 		//Проверьте, ударился ли луч о стену
 		if (map_array[w->map_x][w->map_y] == 1)
 			w->hit = 1;
-		if (map_array[w->map_x][w->map_y] == 2)
+		if (map_array[w->map_x][w->map_y] == 2 && BONUS)
 			w->hit = 2;
 	}
 }

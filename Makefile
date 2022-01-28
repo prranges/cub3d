@@ -33,6 +33,8 @@ MLX 	= -lmlx -L ./mlx -framework OpenGL -framework AppKit
 
 RM	= rm -rf
 
+bonus … : CFLAGS += -D BONUS=1
+
 OBJS_DIR 	= temp
 
 OBJS	= $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
@@ -61,6 +63,8 @@ clean:
 	$(RM) $(OBJS_DIR)
 	make -C ./libft clean
 	
+bonus:	re
+
 fclean: clean
 	$(RM) $(NAME)
 	make -C ./libft fclean
