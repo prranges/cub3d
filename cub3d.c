@@ -91,25 +91,33 @@ int	game_loop(t_data *g)
 	return (0);
 }
 
-int	main(void)
+int	txtrs_malloc(t_data *g)
 {
-	t_data	g;
 	int		j;
 	int		i;
 
-	data_init(&g);
 	j = 0;
-	g.txtrs = (int **)malloc(sizeof(int *) * 10); // 10 текструр
-	if (!g.txtrs)
+	g->txtrs = (int **)malloc(sizeof(int *) * 10); // 10 текструр
+	if (!g->txtrs)
 		return (-1);
 	i = 0;
 	while (i < 10)
 	{
-		g.txtrs[i] = (int *)malloc(sizeof(int) * (TXTR_H * TXTR_W));
-		if (!g.txtrs[i])
+		g->txtrs[i] = (int *)malloc(sizeof(int) * (TXTR_H * TXTR_W));
+		if (!g->txtrs[i])
 			return (-1);
 		i++;
 	}
+	return (0);
+}
+
+int	main(void)
+{
+	t_data	g;
+
+	data_init(&g);
+	if (txtrs_malloc(&g))
+		exit(1);
 	load_texture(&g);
 	mlx_loop_hook(g.mlx, &game_loop, &g);
 	mlx_hook(g.win, PRESS, 0, &key_press, &g);
