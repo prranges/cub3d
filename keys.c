@@ -82,21 +82,21 @@ void	key_update(t_data *g)
 {
 	if (g->key_up)
 	{
-		if (map_array[(int)(g->p_pos_x + g->p_dir_x * \
-				g->move_speed)][(int)(g->p_pos_y)] < 1)
+		if (g->map.map_pars[(int)(g->p_pos_x + g->p_dir_x * \
+				g->move_speed)][(int)(g->p_pos_y)] == '0')
 			g->p_pos_x += g->p_dir_x * g->move_speed;
-		if (map_array[(int)(g->p_pos_x)][(int)(g->p_pos_y + \
-				g->p_dir_y * g->move_speed)] < 1)
+		if (g->map.map_pars[(int)(g->p_pos_x)][(int)(g->p_pos_y + \
+				g->p_dir_y * g->move_speed)] == '0')
 			g->p_pos_y += g->p_dir_y * g->move_speed;
 	}
 	//move backwards if no wall behind you
 	if (g->key_down)
 	{
-		if (map_array[(int)(g->p_pos_x - g->p_dir_x * \
-				g->move_speed)][(int)(g->p_pos_y)] < 1)
+		if (g->map.map_pars[(int)(g->p_pos_x - g->p_dir_x * \
+				g->move_speed)][(int)(g->p_pos_y)] == '0')
 			g->p_pos_x -= g->p_dir_x * g->move_speed;
-		if (map_array[(int)(g->p_pos_x)][(int)(g->p_pos_y - \
-				g->p_dir_y * g->move_speed)] < 1)
+		if (g->map.map_pars[(int)(g->p_pos_x)][(int)(g->p_pos_y - \
+				g->p_dir_y * g->move_speed)] == '0')
 			g->p_pos_y -= g->p_dir_y * g->move_speed;
 	}
 	if (g->key_right)

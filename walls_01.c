@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void	perform_dda(t_wall *w)
+void	perform_dda(t_data *g, t_wall *w)
 {
 	w->hit = 0; //был ли удар о стену?
 	while (w->hit == 0)
@@ -32,9 +32,12 @@ void	perform_dda(t_wall *w)
 			w->side = 1;
 		}
 		//Проверьте, ударился ли луч о стену
-		if (map_array[w->map_x][w->map_y] == 1)
+		if (g->map.map_pars[w->map_x][w->map_y] == '1')
+		{
+//			printf("6\n");
 			w->hit = 1;
-		if (map_array[w->map_x][w->map_y] == 2 && BONUS)
+		}
+		if (g->map.map_pars[w->map_x][w->map_y] == '2' && BONUS)
 			w->hit = 2;
 	}
 }
@@ -110,15 +113,21 @@ void	wall_casting(t_data *g)
 		//в каком направлении делать шаг в x или y-направлении
 		//(либо +1, либо -1)
 		//вычислите шаг и начальное боковое расстояние
+//		printf("2\n");
 		calc_step_and_side_dist(g, &w);
 		//выполнять DDA. Это цикл, каждый раз увеличивающий луч на 1 квадрат,
 		//пока не будет достигнута стена
-		perform_dda(&w);
+//		printf("3\n");
+		perform_dda(g, &w);
+//		printf("400\n");
 		// рассчитываем какой столбец текс туры и какого размера будем рисовать
+//		printf("4\n");
 		calc_size_of_wall_x(g, &w);
 		// выбираем текстуру и находим нужный пиксель
+//		printf("5\n");
 		choose_pixel(g, &w);
 		// цикл в котором
+//		printf("6\n");
 		pixels_to_screen_buf(g, &w);
 		w.x++;
 	}

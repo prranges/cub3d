@@ -31,8 +31,7 @@
 
 # define TXTR_W 64
 # define TXTR_H 64
-# define MAP_W 24
-# define MAP_H 24
+
 # define MINIMAP 6
 # define WIN_W 640
 # define WIN_H 480
@@ -48,7 +47,32 @@
 #  define BONUS 0
 # endif
 
-int	map_array[MAP_W][MAP_H];
+typedef struct s_color // mbalman
+{
+	int	red;
+	int	green;
+	int	blue;
+}				t_color;
+
+typedef struct s_map // mbalman
+{
+	char	**map_pars;
+	int		map_size_l;
+	int		map_size_h;
+	char	*path_north_texture;
+	char	*path_south_texture;
+	char	*path_east_texture;
+	char	*path_west_texture;
+	int		param_count;
+	char	plaer_orient;
+	char	*celing;
+	char	*floor;
+	int		celing_color;
+	int		floor_color;
+	int		flag_error;
+}				t_map;
+
+//int	map_array[MAP_W][MAP_H];
 
 typedef struct s_wall
 {
@@ -126,6 +150,7 @@ typedef struct s_data
 	double	rot_speed;
 	int		f;
 	int		c;
+	t_map	map; // mbalman
 }				t_data;
 
 void	data_init(t_data *g);
@@ -142,5 +167,13 @@ void	player_rotate_right(t_data *g);
 int		mouse_move(int x, int y, t_data *g);
 void	minimap(t_data *g);
 void	door(t_data *g);
+
+
+void	ft_map_volidation(int argc, char **argv, t_data *data); //mbalman
+void	ft_pars_map(char **argv, t_data *data);
+void	ft_pars_params(char **argv, t_data *data);
+void 	ft_error(void);
+void	ft_init(t_data *data);
+void    ft_param_validation(t_data *data);
 
 #endif

@@ -14,6 +14,8 @@
 		243CC3A927A2D54A00202B79 /* minimap_bonus.c in Sources */ = {isa = PBXBuildFile; fileRef = 243CC3A827A2D54A00202B79 /* minimap_bonus.c */; };
 		243CC3AB27A2D6C800202B79 /* load_and_init.c in Sources */ = {isa = PBXBuildFile; fileRef = 243CC3AA27A2D6C800202B79 /* load_and_init.c */; };
 		246DF329279D581700F1457F /* keys.c in Sources */ = {isa = PBXBuildFile; fileRef = 246DF328279D581700F1457F /* keys.c */; };
+		249A572F27A44D9500F6BDE0 /* ft_parsing_01.c in Sources */ = {isa = PBXBuildFile; fileRef = 249A572D27A44D9500F6BDE0 /* ft_parsing_01.c */; };
+		249A573027A44D9500F6BDE0 /* ft_parsing_02.c in Sources */ = {isa = PBXBuildFile; fileRef = 249A572E27A44D9500F6BDE0 /* ft_parsing_02.c */; };
 		24AF285027A029C00037B102 /* walls_02.c in Sources */ = {isa = PBXBuildFile; fileRef = 24AF284F27A029C00037B102 /* walls_02.c */; };
 		24E482F2279D494C007FA83E /* cub3d.c in Sources */ = {isa = PBXBuildFile; fileRef = 24E482F1279D494C007FA83E /* cub3d.c */; };
 		24F6F0F427A124B300B3D461 /* mouse_bonus.c in Sources */ = {isa = PBXBuildFile; fileRef = 24F6F0F327A124B300B3D461 /* mouse_bonus.c */; };
@@ -50,6 +52,9 @@
 		243CC3A827A2D54A00202B79 /* minimap_bonus.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = minimap_bonus.c; sourceTree = "<group>"; };
 		243CC3AA27A2D6C800202B79 /* load_and_init.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = load_and_init.c; sourceTree = "<group>"; };
 		246DF328279D581700F1457F /* keys.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = keys.c; sourceTree = "<group>"; };
+		249A572D27A44D9500F6BDE0 /* ft_parsing_01.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_parsing_01.c; sourceTree = "<group>"; };
+		249A572E27A44D9500F6BDE0 /* ft_parsing_02.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_parsing_02.c; sourceTree = "<group>"; };
+		249A573127A45F5D00F6BDE0 /* map.cub */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.cub; sourceTree = "<group>"; };
 		24AF284F27A029C00037B102 /* walls_02.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = walls_02.c; sourceTree = "<group>"; };
 		24E482F1279D494C007FA83E /* cub3d.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cub3d.c; sourceTree = "<group>"; };
 		24F6F0F327A124B300B3D461 /* mouse_bonus.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mouse_bonus.c; sourceTree = "<group>"; };
@@ -76,6 +81,8 @@
 				243CA0C4278C11F70002A787 /* textures */,
 				243CA0C1278C0EA00002A787 /* cub3d.h */,
 				24E482F1279D494C007FA83E /* cub3d.c */,
+				249A572D27A44D9500F6BDE0 /* ft_parsing_01.c */,
+				249A572E27A44D9500F6BDE0 /* ft_parsing_02.c */,
 				243CC3A827A2D54A00202B79 /* minimap_bonus.c */,
 				243CC3A627A2D3CE00202B79 /* doors_bonus.c */,
 				243CC3AA27A2D6C800202B79 /* load_and_init.c */,
@@ -113,6 +120,7 @@
 		243CA0C5278C1F0C0002A787 /* maps */ = {
 			isa = PBXGroup;
 			children = (
+				249A573127A45F5D00F6BDE0 /* map.cub */,
 				243CA0C7278C22BB0002A787 /* rectangle.cub */,
 				243CA0C9278C23290002A787 /* square.cub */,
 			);
@@ -176,12 +184,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				249A573027A44D9500F6BDE0 /* ft_parsing_02.c in Sources */,
 				246DF329279D581700F1457F /* keys.c in Sources */,
 				24F6F0F427A124B300B3D461 /* mouse_bonus.c in Sources */,
 				24AF285027A029C00037B102 /* walls_02.c in Sources */,
 				243CC3A927A2D54A00202B79 /* minimap_bonus.c in Sources */,
 				243CC3A727A2D3CE00202B79 /* doors_bonus.c in Sources */,
 				24FA472C279E87D400175C37 /* walls_01.c in Sources */,
+				249A572F27A44D9500F6BDE0 /* ft_parsing_01.c in Sources */,
 				243CC3AB27A2D6C800202B79 /* load_and_init.c in Sources */,
 				243CA0CA278C23290002A787 /* square.cub in Sources */,
 				24E482F2279D494C007FA83E /* cub3d.c in Sources */,

@@ -12,24 +12,24 @@
 
 #include "cub3d.h"
 
-void	door_close(int x, int y)
+void	door_close(t_data *g, int x, int y)
 {
 	int	xx;
 	int	yy;
 
 	xx = x;
 	yy = y;
-	map_array[xx][yy] = 2;
+	g->map.map_pars[xx][yy] = 2;
 }
 
-void	door_open(int x, int y)
+void	door_open(t_data *g, int x, int y)
 {
 	int	xx;
 	int	yy;
 
 	xx = x;
 	yy = y;
-	map_array[xx][yy] = -1;
+	g->map.map_pars[xx][yy] = -1;
 }
 
 void	door(t_data *g)
@@ -39,21 +39,21 @@ void	door(t_data *g)
 
 	x = (int)g->p_pos_x;
 	y = (int)g->p_pos_y;
-	if (map_array[x][y - 1] == 2 && g->key_open)
-		door_open(x, y - 1);
-	else if (map_array[x][y + 1] == 2 && g->key_open)
-		door_open(x, y + 1);
-	else if (map_array[x + 1][y] == 2 && g->key_open)
-		door_open(x + 1, y);
-	else if (map_array[x - 1][y] == 2 && g->key_open)
-		door_open(x - 1, y);
-	else if (map_array[x][y - 1] == -1 && g->key_open)
-		door_close(x, y - 1);
-	else if (map_array[x][y + 1] == -1 && g->key_open)
-		door_close(x, y + 1);
-	else if (map_array[x + 1][y] == -1 && g->key_open)
-		door_close(x + 1, y);
-	else if (map_array[x - 1][y] == -1 && g->key_open)
-		door_close(x - 1, y);
+	if (g->map.map_pars[x][y - 1] == 2 && g->key_open)
+		door_open(g, x, y - 1);
+	else if (g->map.map_pars[x][y + 1] == 2 && g->key_open)
+		door_open(g, x, y + 1);
+	else if (g->map.map_pars[x + 1][y] == 2 && g->key_open)
+		door_open(g, x + 1, y);
+	else if (g->map.map_pars[x - 1][y] == 2 && g->key_open)
+		door_open(g, x - 1, y);
+	else if (g->map.map_pars[x][y - 1] == -1 && g->key_open)
+		door_close(g, x, y - 1);
+	else if (g->map.map_pars[x][y + 1] == -1 && g->key_open)
+		door_close(g, x, y + 1);
+	else if (g->map.map_pars[x + 1][y] == -1 && g->key_open)
+		door_close(g, x + 1, y);
+	else if (g->map.map_pars[x - 1][y] == -1 && g->key_open)
+		door_close(g, x - 1, y);
 	g->key_open = 0;
 }

@@ -15,13 +15,13 @@
 void	choose_txtr(t_wall *w)
 {
 	if (w->hit == 2)
-		w->txtr_num = 8;
+		w->txtr_num = 4;
 	else if (w->side == 1 && w->ray_dir_y < 0)
-		w->txtr_num = 6;
+		w->txtr_num = 0;
 	else if (w->side == 1 && w->ray_dir_y >= 0)
 		w->txtr_num = 1;
 	else if (w->side == 0 && w->ray_dir_x < 0)
-		w->txtr_num = 4;
+		w->txtr_num = 2;
 	else if (w->side == 0 && w->ray_dir_x >= 0)
 		w->txtr_num = 3;
 }

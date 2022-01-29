@@ -16,6 +16,8 @@ LIBFT	= ./libft/libft.a
 LFT_DIR = ./libft
 
 SRCS	= cub3d.c \
+		  ft_parsing_01.c \
+		  ft_parsing_02.c \
 		  load_and_init.c \
 		  keys.c \
 		  mouse_bonus.c \

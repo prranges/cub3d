@@ -37,11 +37,11 @@ void	put_square(t_data *g, int x, int y, int color)
 
 void	draw_minimap(t_data *g, t_minimap *m)
 {
-	if (map_array[m->y][m->x] == 0)
+	if (g->map.map_pars[m->y][m->x] == 0)
 		put_square(g, m->xx, m->yy, 13158600);
-	if (map_array[m->y][m->x] == 1)
+	if (g->map.map_pars[m->y][m->x] == 1)
 		put_square(g, m->xx, m->yy, 200);
-	if (map_array[m->y][m->x] == 2 || map_array[m->y][m->x] == -1)
+	if (g->map.map_pars[m->y][m->x] == 2 || g->map.map_pars[m->y][m->x] == -1)
 		put_square(g, m->xx, m->yy, 6605050);
 	put_square(g, (int)g->p_pos_y * MINIMAP, \
 		(int)g->p_pos_x * MINIMAP, 16711680);
@@ -53,11 +53,11 @@ void	minimap(t_data *g)
 
 	m.y = 0;
 	m.yy = 0;
-	while (m.y < MAP_H)
+	while (m.y < g->map.map_size_h)
 	{
 		m.x = 0;
 		m.xx = 0;
-		while (m.x < MAP_W)
+		while (m.x < g->map.map_size_l)
 		{
 			draw_minimap(g, &m);
 			m.xx += MINIMAP;

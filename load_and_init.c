@@ -38,25 +38,18 @@ void	load_texture(t_data *g)
 {
 	t_img	img;
 
-	load_image(g, g->txtrs[0], "textures/eagle.xpm", &img);
-	load_image(g, g->txtrs[1], "textures/redbrick.xpm", &img);
-	load_image(g, g->txtrs[2], "textures/purplestone.xpm", &img);
-	load_image(g, g->txtrs[3], "textures/greystone.xpm", &img);
-	load_image(g, g->txtrs[4], "textures/bluestone.xpm", &img);
-	load_image(g, g->txtrs[5], "textures/mossy.xpm", &img);
-	load_image(g, g->txtrs[6], "textures/wood.xpm", &img);
-	load_image(g, g->txtrs[7], "textures/colorstone.xpm", &img);
-	load_image(g, g->txtrs[8], "textures/door0.xpm", &img);
-	load_image(g, g->txtrs[9], "textures/door1.xpm", &img);
+	load_image(g, g->txtrs[0], g->map.path_north_texture, &img);
+	load_image(g, g->txtrs[1], g->map.path_south_texture, &img);
+	load_image(g, g->txtrs[2], g->map.path_east_texture, &img);
+	load_image(g, g->txtrs[3], g->map.path_west_texture, &img);
+	load_image(g, g->txtrs[4], "textures/door0.xpm", &img);
 }
 
 void	data_init(t_data *g)
 {
-	g->f = 14443520;
-	g->c = 10746347;
 	g->mlx = mlx_init();
-	g->p_pos_x = 22.0; // начальная позиция x и y
-	g->p_pos_y = 11.0;
+	g->p_pos_x = 5.0; // начальная позиция x и y
+	g->p_pos_y = 5.0;
 	g->p_dir_x = -1.0; //начальный вектор направления
 	g->p_dir_y = 0.0;
 	g->cam_plane_x = 0.0; //версия плоскости камеры для 2d raycaster
@@ -73,4 +66,15 @@ void	data_init(t_data *g)
 	g->img.img = mlx_new_image(g->mlx, WIN_W, WIN_H);
 	g->img.data = (int *)mlx_get_data_addr(g->img.img, &g->img.bpp, \
 		&g->img.size_l, &g->img.endian);
+}
+
+void ft_init(t_data *g)
+{
+	    g->map.path_north_texture = NULL;
+		g->map.path_south_texture = NULL;
+		g->map.path_east_texture = NULL;
+		g->map.path_west_texture = NULL;
+		g->map.param_count = 0;
+		g->map.map_size_h = 0;
+		g->map.map_size_l = 0;
 }
