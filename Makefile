@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: prranges <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 14:41:12 by prranges          #+#    #+#              #
-#    Updated: 2021/10/06 14:41:19 by prranges         ###   ########.fr        #
+#    Updated: 2022/01/29 12:07:06 by mbalman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,14 @@ LIBFT	= ./libft/libft.a
 LFT_DIR = ./libft
 
 SRCS	= cub3d.c \
-		  ft_parsing_01.c \
-		  ft_parsing_02.c \
+		  ft_map_validation.c \
+		  ft_map_parse.c \
+		  ft_map_check_border.c \
+		  ft_map_check_inside.c \
+		  ft_parsing_utils.c \
+		  ft_read_map_file.c \
+		  ft_map_check_symbols.c \
+		  ft_map_record.c \
 		  load_and_init.c \
 		  keys.c \
 		  mouse_bonus.c \

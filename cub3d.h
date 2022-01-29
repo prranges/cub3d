@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prranges <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 09:52:52 by prranges          #+#    #+#             */
-/*   Updated: 2022/01/10 09:52:54 by prranges         ###   ########.fr       */
+/*   Updated: 2022/01/29 12:16:18 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,8 +172,21 @@ void	door(t_data *g);
 void	ft_map_volidation(int argc, char **argv, t_data *data); //mbalman
 void	ft_pars_map(char **argv, t_data *data);
 void	ft_pars_params(char **argv, t_data *data);
-void 	ft_error(void);
+void 	ft_error(char *error_msg);
 void	ft_init(t_data *data);
+int		ft_strisnum(const char *str);
+int		rgb_to_int(int r, int g, int b);
+void	ft_bchar(void *dest, size_t len, char c);
+int		ft_check_rgb(char **split_color);
 void    ft_param_validation(t_data *data);
+void    ft_check_border_map_l(char **map, t_data *g);
+void    ft_check_border_map_h(char **map, t_data *g);
+void    ft_check_map_inside_l(char **map, t_data *g);
+void    ft_check_map_inside_h(char **map, t_data *g);
+void	ft_load_map(char **argv, char ***map);
+void	ft_map_lines_check(char **lines, int i, t_data *g);
+void    ft_map_record(char **lines, int i, t_data *g);
+void    ft_save_param(char *line_split, char **path_texture, t_data *g);
+void    ft_save_color(char **line_split, char **color, t_data *g);
 
 #endif
