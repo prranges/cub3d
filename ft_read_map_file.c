@@ -6,18 +6,18 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:54:06 by mbalman           #+#    #+#             */
-/*   Updated: 2022/01/29 11:54:23 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/01/29 18:08:21 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int ft_size_map(char **argv) // определение размера карты
+int	ft_size_map(char **argv)
 {
-	int     size;
-	int     end_file;
-	int     fd;
-	char    *str;
+	int		size;
+	int		end_file;
+	int		fd;
+	char	*str;
 
 	size = 0;
 	str = NULL;
@@ -32,24 +32,24 @@ int ft_size_map(char **argv) // определение размера карты
 		size++;
 	}
 	close(fd);
-	return(size);
+	return (size);
 }
 
-void ft_load_map(char **argv, char ***map) // загрузка параметров карты
+void	ft_load_map(char **argv, char ***map)
 {
-	int     fd;
-	int     end_file;
-	int     i;
-	int     size;
-	char    *str;
-	char    **temp = NULL;
-			
+	int		fd;
+	int		end_file;
+	int		i;
+	int		size;
+	char	*str;
+	char	**temp;
+
+	temp = NULL;
 	i = 0;
 	end_file = 1;
 	size = ft_size_map(argv);
 	temp = (char **)malloc(sizeof(char *) * (size + 1));
-	fd = open(argv[1], O_RDONLY); 
-	
+	fd = open(argv[1], O_RDONLY);
 	while (end_file)
 	{
 		end_file = get_next_line(fd, &str);

@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:46:26 by mbalman           #+#    #+#             */
-/*   Updated: 2022/01/29 11:36:04 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/01/29 18:02:23 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_chek_name_map(char **argv)
 		return ;
 	else
 		ft_error("Error: Bad map name");
-
 }
 
 void	ft_chek_map_evalible(int fd)
@@ -35,7 +34,7 @@ void	ft_map_volidation(int argc, char **argv, t_data *g)
 {
 	int		fd;
 	char	*line;
-	
+
 	(void)g;
 	if (argc != 2)
 		ft_error("Error arguments");
@@ -45,7 +44,7 @@ void	ft_map_volidation(int argc, char **argv, t_data *g)
 	ft_chek_map_evalible(fd);
 }
 
-void ft_error(char *error_msg)
+void	ft_error(char *error_msg)
 {
 	printf("%s\n", error_msg);
 	exit (1);
