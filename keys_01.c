@@ -80,24 +80,19 @@ void	player_rotate_left(t_data *g)
 
 void	key_update(t_data *g)
 {
-	if (g->key_up)
+	if (BONUS)
 	{
-		if (g->map.map_pars[(int)(g->p_pos_x + g->p_dir_x * \
-				g->move_speed)][(int)(g->p_pos_y)] == '0')
-			g->p_pos_x += g->p_dir_x * g->move_speed;
-		if (g->map.map_pars[(int)(g->p_pos_x)][(int)(g->p_pos_y + \
-				g->p_dir_y * g->move_speed)] == '0')
-			g->p_pos_y += g->p_dir_y * g->move_speed;
+		if (g->key_up)
+			player_move_up_bonus(g);
+		if (g->key_down)
+			player_move_down_bonus(g);
 	}
-	//move backwards if no wall behind you
-	if (g->key_down)
+	else
 	{
-		if (g->map.map_pars[(int)(g->p_pos_x - g->p_dir_x * \
-				g->move_speed)][(int)(g->p_pos_y)] == '0')
-			g->p_pos_x -= g->p_dir_x * g->move_speed;
-		if (g->map.map_pars[(int)(g->p_pos_x)][(int)(g->p_pos_y - \
-				g->p_dir_y * g->move_speed)] == '0')
-			g->p_pos_y -= g->p_dir_y * g->move_speed;
+		if (g->key_up)
+			player_move_up(g);
+		if (g->key_down)
+			player_move_down(g);
 	}
 	if (g->key_right)
 		player_rotate_right(g);

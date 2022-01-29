@@ -12,6 +12,21 @@
 
 #include "cub3d.h"
 
+int	close_win(t_data *g)
+{
+	int	i;
+
+	i = -1;
+	while (g->map.map_pars[++i])
+		free(g->map.map_pars[i]);
+	if (g->mlx)
+	{
+		mlx_clear_window(g->mlx, g->win);
+		mlx_destroy_window(g->mlx, g->win);
+	}
+	exit (0);
+}
+
 void	draw(t_data *g)
 {
 	int	x;
@@ -31,25 +46,6 @@ void	draw(t_data *g)
 	if (BONUS)
 		minimap(g);
 	mlx_put_image_to_window(g->mlx, g->win, g->img.img, 0, 0);
-}
-
-void	floor_and_ceiling(t_data *g)
-{
-	int	x;
-	int	y;
-
-	y = WIN_H / 2 + 1;
-	while (y < WIN_H)
-	{
-		x = 0;
-		while (x < WIN_W)
-		{
-			g->screen_buf[y][x] = g->map.floor_color;
-			g->screen_buf[WIN_H - y - 1][x] = g->map.celing_color;
-			x++;
-		}
-		y++;
-	}
 }
 
 int	game_loop(t_data *g)
@@ -97,11 +93,13 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(g.mlx, &game_loop, &g);
 	mlx_hook(g.win, PRESS, 0, &key_press, &g);
 	mlx_hook(g.win, RELEASE, 0, &key_release, &g);
+	mlx_hook(g.win, 17, 0L, close_win, &g);
 	if (BONUS)
 	{
 		mlx_mouse_move(g.win, WIN_W / 2, WIN_H / 2);
 		mlx_mouse_hide();
 		mlx_hook(g.win, MOUSE, 0, mouse_move, &g);
 	}
+	printf("dir_x - %f dir_y - %f\n", g.p_dir_x, g.p_dir_y);
 	mlx_loop(g.mlx);
 }

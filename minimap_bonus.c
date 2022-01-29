@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minimap.c                                          :+:      :+:    :+:   */
+/*   minimap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prranges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -37,11 +37,11 @@ void	put_square(t_data *g, int x, int y, int color)
 
 void	draw_minimap(t_data *g, t_minimap *m)
 {
-	if (g->map.map_pars[m->y][m->x] == 0)
+	if (g->map.map_pars[m->y][m->x] == '0')
 		put_square(g, m->xx, m->yy, 13158600);
-	if (g->map.map_pars[m->y][m->x] == 1)
+	if (g->map.map_pars[m->y][m->x] == '1')
 		put_square(g, m->xx, m->yy, 200);
-	if (g->map.map_pars[m->y][m->x] == 2 || g->map.map_pars[m->y][m->x] == -1)
+	if (g->map.map_pars[m->y][m->x] == '2' || g->map.map_pars[m->y][m->x] == '3')
 		put_square(g, m->xx, m->yy, 6605050);
 	put_square(g, (int)g->p_pos_y * MINIMAP, \
 		(int)g->p_pos_x * MINIMAP, 16711680);

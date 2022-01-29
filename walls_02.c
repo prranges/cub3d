@@ -65,3 +65,22 @@ void	pixels_to_screen_buf(t_data *g, t_wall *w)
 		w->y++;
 	}
 }
+
+void	floor_and_ceiling(t_data *g)
+{
+	int	x;
+	int	y;
+
+	y = WIN_H / 2 + 1;
+	while (y < WIN_H)
+	{
+		x = 0;
+		while (x < WIN_W)
+		{
+			g->screen_buf[y][x] = g->map.floor_color;
+			g->screen_buf[WIN_H - y - 1][x] = g->map.celing_color;
+			x++;
+		}
+		y++;
+	}
+}

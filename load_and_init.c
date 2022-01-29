@@ -48,10 +48,10 @@ void	load_texture(t_data *g)
 void	data_init(t_data *g)
 {
 	g->mlx = mlx_init();
-	g->p_pos_x = 5.0; // начальная позиция x и y
-	g->p_pos_y = 5.0;
-	g->p_dir_x = -1.0; //начальный вектор направления
-	g->p_dir_y = 0.0;
+//	g->p_pos_x = 5.0; // начальная позиция x и y
+//	g->p_pos_y = 5.0;
+//	g->p_dir_x = -1.0; //начальный вектор направления
+//	g->p_dir_y = 0.0;
 	g->cam_plane_x = 0.0; //версия плоскости камеры для 2d raycaster
 	g->cam_plane_y = 0.66;
 	g->key_left = 0;

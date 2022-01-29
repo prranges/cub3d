@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prranges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 09:52:52 by prranges          #+#    #+#             */
-/*   Updated: 2022/01/29 12:16:18 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/01/10 09:52:54 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,13 @@ typedef struct s_map // mbalman
 	char	*path_east_texture;
 	char	*path_west_texture;
 	int		param_count;
-	char	plaer_orient;
+//	char	plaer_orient;
 	char	*celing;
 	char	*floor;
 	int		celing_color;
 	int		floor_color;
 	int		flag_error;
 }				t_map;
-
-//int	map_array[MAP_W][MAP_H];
 
 typedef struct s_wall
 {
@@ -144,13 +142,10 @@ typedef struct s_data
 	int		key_open;
 	t_img	img;
 	int		screen_buf[WIN_H][WIN_W]; // буфер по размеру экрана
-	double	z_buffer[WIN_W]; // буфер по ширине экрана
 	int		**txtrs;
 	double	move_speed;
 	double	rot_speed;
-	int		f;
-	int		c;
-	t_map	map; // mbalman
+	t_map	map;
 }				t_data;
 
 void	data_init(t_data *g);
@@ -159,32 +154,36 @@ int		key_press(int key, t_data *g);
 int		key_release(int key, t_data *g);
 void	key_update(t_data *g);
 void	wall_casting(t_data *g);
+void	floor_and_ceiling(t_data *g);
 void	draw(t_data *g);
 void	choose_pixel(t_data *g, t_wall *w);
 void	pixels_to_screen_buf(t_data *g, t_wall *w);
 void	player_rotate_left(t_data *g);
 void	player_rotate_right(t_data *g);
+void	player_move_up(t_data *g);
+void	player_move_up_bonus(t_data *g);
+void	player_move_down(t_data *g);
+void	player_move_down_bonus(t_data *g);
 int		mouse_move(int x, int y, t_data *g);
 void	minimap(t_data *g);
 void	door(t_data *g);
 
-
 void	ft_map_volidation(int argc, char **argv, t_data *data); //mbalman
-void	ft_pars_map(char **argv, t_data *data);
-void	ft_pars_params(char **argv, t_data *data);
-void 	ft_error(char *error_msg);
-void	ft_init(t_data *data);
-int		ft_strisnum(const char *str);
-int		rgb_to_int(int r, int g, int b);
-void	ft_bchar(void *dest, size_t len, char c);
-int		ft_check_rgb(char **split_color);
+void    ft_pars_map(char **argv, t_data *data);
+void    ft_pars_params(char **argv, t_data *data);
+void    ft_error(char *error_msg);
+void    ft_init(t_data *data);
+int     ft_strisnum(const char *str);
+int     rgb_to_int(int r, int g, int b);
+void    ft_bchar(void *dest, size_t len, char c);
+int     ft_check_rgb(char **split_color);
 void    ft_param_validation(t_data *data);
 void    ft_check_border_map_l(char **map, t_data *g);
 void    ft_check_border_map_h(char **map, t_data *g);
 void    ft_check_map_inside_l(char **map, t_data *g);
 void    ft_check_map_inside_h(char **map, t_data *g);
-void	ft_load_map(char **argv, char ***map);
-void	ft_map_lines_check(char **lines, int i, t_data *g);
+void    ft_load_map(char **argv, char ***map);
+void    ft_map_lines_check(char **lines, int i, t_data *g);
 void    ft_map_record(char **lines, int i, t_data *g);
 void    ft_save_param(char *line_split, char **path_texture, t_data *g);
 void    ft_save_color(char **line_split, char **color, t_data *g);

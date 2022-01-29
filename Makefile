@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+         #
+#    By: prranges <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 14:41:12 by prranges          #+#    #+#              #
-#    Updated: 2022/01/29 12:07:06 by mbalman          ###   ########.fr        #
+#    Updated: 2021/10/06 14:41:19 by prranges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS	= cub3d.c \
 		  ft_map_check_symbols.c \
 		  ft_map_record.c \
 		  load_and_init.c \
-		  keys.c \
+		  keys_01.c \
+		  keys_02.c \
 		  mouse_bonus.c \
 		  minimap_bonus.c \
 		  doors_bonus.c \
