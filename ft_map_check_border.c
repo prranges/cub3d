@@ -19,24 +19,18 @@ void	ft_check_border_map_l(char **map, t_data *g)
 
 	i = 0;
 	j = 0;
-	while (i < g->map.map_size_h)
+	while (i < g->map.size_h)
 	{
 		j = -1;
 		while (map[i][++j] == ' ')
 			;
 		if (map[i][j] != '1')
-		{
-			printf("Error 1 '%c' %d %d", map[i][j], i, j);
-			exit(1);
-		}
-		j = g->map.map_size_l;
+			ft_map_error("Map contains unclosed contour", map[i][j]);
+		j = g->map.size_l;
 		while (map[i][--j] == ' ')
 			;
 		if (map[i][j] != '1')
-		{
-			printf("Error 2 '%c' %d %d", map[i][j], i, j);
-			exit(1);
-		}
+			ft_map_error("Map contains unclosed contour", map[i][j]);
 		i++;
 	}
 }
@@ -48,24 +42,18 @@ void	ft_check_border_map_h(char **map, t_data *g)
 
 	i = 0;
 	j = 0;
-	while (i < g->map.map_size_l)
+	while (i < g->map.size_l)
 	{
 		j = -1;
 		while (map[++j][i] == ' ')
 			;
 		if (map[j][i] != '1')
-		{
-			printf("Error 3 '%c' %d %d", map[j][i], j, i);
-			exit (1);
-		}
-		j = g->map.map_size_h;
+			ft_map_error("Map contains unclosed contour", map[j][i]);
+		j = g->map.size_h;
 		while (map[--j][i] == ' ')
 			;
 		if (map[j][i] != '1')
-		{
-			printf("Error 4 '%c' %d %d", map[j][i], j, i);
-			exit (1);
-		}
+			ft_map_error("Map contains unclosed contour", map[j][i]);
 		i++;
 	}
 }

@@ -57,14 +57,13 @@ typedef struct s_color // mbalman
 typedef struct s_map // mbalman
 {
 	char	**map_pars;
-	int		map_size_l;
-	int		map_size_h;
+	int		size_l;
+	int		size_h;
 	char	*path_north_texture;
 	char	*path_south_texture;
 	char	*path_east_texture;
 	char	*path_west_texture;
 	int		param_count;
-//	char	plaer_orient;
 	char	*celing;
 	char	*floor;
 	int		celing_color;
@@ -107,7 +106,6 @@ typedef struct s_img
 {
 	void	*img;
 	int		*data;
-
 	int		size_l;
 	int		bpp;
 	int		endian;
@@ -123,16 +121,8 @@ typedef struct s_minimap
 	int	yy;
 }				t_minimap;
 
-typedef struct s_data
+typedef struct s_keys
 {
-	double	p_pos_x; // вектор положения игрока
-	double	p_pos_y; //
-	double	p_dir_x; // направление игрока
-	double	p_dir_y; // плоскость камеры игрока
-	double	cam_plane_x;
-	double	cam_plane_y;
-	void	*mlx;
-	void	*win;
 	int		key_left;
 	int		key_up;
 	int		key_down;
@@ -140,16 +130,34 @@ typedef struct s_data
 	int		key_esc;
 	int		mouse_x;
 	int		key_open;
-	t_img	img;
-	int		screen_buf[WIN_H][WIN_W]; // буфер по размеру экрана
-	int		**txtrs;
-	double	move_speed;
-	double	rot_speed;
-	t_map	map;
+}				t_keys;
+
+typedef struct s_iterators
+{
 	int		i;
 	int		j;
-	// int		k;
-	// int		position_flag;
+	int		k;
+}				t_iterators;
+
+typedef struct s_data
+{
+	double		p_pos_x; // вектор положения игрока
+	double		p_pos_y; //
+	double		p_dir_x; // направление игрока
+	double		p_dir_y; // плоскость камеры игрока
+	double		cam_plane_x;
+	double		cam_plane_y;
+	void		*mlx;
+	void		*win;
+	t_keys		k;
+	t_img		img;
+	int			screen_buf[WIN_H][WIN_W]; // буфер по размеру экрана
+	int			**txtrs;
+	double		move_speed;
+	double		rot_speed;
+	t_map		map;
+	int			position_flag;
+	t_iterators	itr;
 }				t_data;
 
 void	data_init(t_data *g);
@@ -183,7 +191,9 @@ void	ft_bchar(void *dest, size_t len, char c);
 int		ft_check_rgb(char **split_color);
 void	ft_param_validation(t_data *data);
 void	ft_check_border_map_l(char **map, t_data *g);
+void	ft_check_map_inside_l_bonus(char **map, t_data *g, int i, int j);
 void	ft_check_border_map_h(char **map, t_data *g);
+void	ft_check_map_inside_h_bonus(char **map, t_data *g, int i, int j);
 void	ft_check_map_inside_l(char **map, t_data *g, int i, int j);
 void	ft_check_map_inside_h(char **map, t_data *g, int i, int j);
 void	ft_load_map(char **argv, char ***map);
@@ -191,5 +201,6 @@ void	ft_map_lines_check(char **lines, int i, t_data *g);
 void	ft_map_record(char **lines, int i, t_data *g);
 void	ft_save_param(char *line_split, char **path_texture, t_data *g);
 void	ft_save_color(char **line_split, char **color, t_data *g);
+void	ft_map_error(char *error_msg, char error_symbol);
 
 #endif

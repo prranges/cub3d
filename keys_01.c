@@ -17,15 +17,15 @@ int	key_press(int key, t_data *g)
 	if (key == ESC)
 		exit(0);
 	else if (key == UP)
-		g->key_up = 1;
+		g->k.key_up = 1;
 	else if (key == LEFT)
-		g->key_left = 1;
+		g->k.key_left = 1;
 	else if (key == DOWN)
-		g->key_down = 1;
+		g->k.key_down = 1;
 	else if (key == RIGHT)
-		g->key_right = 1;
+		g->k.key_right = 1;
 	else if (key == OPEN)
-		g->key_open = 1;
+		g->k.key_open = 1;
 	return (0);
 }
 
@@ -34,13 +34,13 @@ int	key_release(int key, t_data *g)
 	if (key == ESC)
 		exit(0);
 	else if (key == UP)
-		g->key_up = 0;
+		g->k.key_up = 0;
 	else if (key == LEFT)
-		g->key_left = 0;
+		g->k.key_left = 0;
 	else if (key == DOWN)
-		g->key_down = 0;
+		g->k.key_down = 0;
 	else if (key == RIGHT)
-		g->key_right = 0;
+		g->k.key_right = 0;
 	return (0);
 }
 
@@ -82,22 +82,22 @@ void	key_update(t_data *g)
 {
 	if (BONUS)
 	{
-		if (g->key_up)
+		if (g->k.key_up)
 			player_move_up_bonus(g);
-		if (g->key_down)
+		if (g->k.key_down)
 			player_move_down_bonus(g);
 	}
 	else
 	{
-		if (g->key_up)
+		if (g->k.key_up)
 			player_move_up(g);
-		if (g->key_down)
+		if (g->k.key_down)
 			player_move_down(g);
 	}
-	if (g->key_right)
+	if (g->k.key_right)
 		player_rotate_right(g);
-	if (g->key_left)
+	if (g->k.key_left)
 		player_rotate_left(g);
-	if (g->key_esc)
+	if (g->k.key_esc)
 		exit(0);
 }

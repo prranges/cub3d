@@ -53,11 +53,11 @@ void	minimap(t_data *g)
 
 	m.y = 0;
 	m.yy = 0;
-	while (m.y < g->map.map_size_h)
+	while (m.y < g->map.size_h)
 	{
 		m.x = 0;
 		m.xx = 0;
-		while (m.x < g->map.map_size_l)
+		while (m.x < g->map.size_l)
 		{
 			draw_minimap(g, &m);
 			m.xx += MINIMAP;

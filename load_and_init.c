@@ -48,18 +48,16 @@ void	load_texture(t_data *g)
 void	data_init(t_data *g)
 {
 	g->mlx = mlx_init();
-//	g->p_pos_x = 5.0; // начальная позиция x и y
-//	g->p_pos_y = 5.0;
-//	g->p_dir_x = -1.0; //начальный вектор направления
-//	g->p_dir_y = 0.0;
+	g->p_dir_x = -1.0; //начальный вектор направления
+	g->p_dir_y = 0.0;
 	g->cam_plane_x = 0.0; //версия плоскости камеры для 2d raycaster
 	g->cam_plane_y = 0.66;
-	g->key_left = 0;
-	g->key_up = 0;
-	g->key_down = 0;
-	g->key_right = 0;
-	g->key_esc = 0;
-	g->key_open = 0;
+	g->k.key_left = 0;
+	g->k.key_up = 0;
+	g->k.key_down = 0;
+	g->k.key_right = 0;
+	g->k.key_esc = 0;
+	g->k.key_open = 0;
 	g->move_speed = 0.04;
 	g->rot_speed = 0.04;
 	g->win = mlx_new_window(g->mlx, WIN_W, WIN_H, "mlx");
@@ -75,6 +73,6 @@ void ft_init(t_data *g)
 		g->map.path_east_texture = NULL;
 		g->map.path_west_texture = NULL;
 		g->map.param_count = 0;
-		g->map.map_size_h = 0;
-		g->map.map_size_l = 0;
+		g->map.size_h = 0;
+		g->map.size_l = 0;
 }

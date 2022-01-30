@@ -39,21 +39,21 @@ void	door(t_data *g)
 
 	x = (int)g->p_pos_x;
 	y = (int)g->p_pos_y;
-	if (g->map.map_pars[x][y - 1] == '2' && g->key_open)
+	if (g->map.map_pars[x][y - 1] == '2' && g->k.key_open)
 		door_open(g, x, y - 1);
-	else if (g->map.map_pars[x][y + 1] == '2' && g->key_open)
+	else if (g->map.map_pars[x][y + 1] == '2' && g->k.key_open)
 		door_open(g, x, y + 1);
-	else if (g->map.map_pars[x + 1][y] == '2' && g->key_open)
+	else if (g->map.map_pars[x + 1][y] == '2' && g->k.key_open)
 		door_open(g, x + 1, y);
-	else if (g->map.map_pars[x - 1][y] == '2' && g->key_open)
+	else if (g->map.map_pars[x - 1][y] == '2' && g->k.key_open)
 		door_open(g, x - 1, y);
-	else if (g->map.map_pars[x][y - 1] == '3' && g->key_open)
+	else if (g->map.map_pars[x][y - 1] == '3' && g->k.key_open)
 		door_close(g, x, y - 1);
-	else if (g->map.map_pars[x][y + 1] == '3' && g->key_open)
+	else if (g->map.map_pars[x][y + 1] == '3' && g->k.key_open)
 		door_close(g, x, y + 1);
-	else if (g->map.map_pars[x + 1][y] == '3' && g->key_open)
+	else if (g->map.map_pars[x + 1][y] == '3' && g->k.key_open)
 		door_close(g, x + 1, y);
-	else if (g->map.map_pars[x - 1][y] == '3' && g->key_open)
+	else if (g->map.map_pars[x - 1][y] == '3' && g->k.key_open)
 		door_close(g, x - 1, y);
-	g->key_open = 0;
+	g->k.key_open = 0;
 }

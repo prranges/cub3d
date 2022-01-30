@@ -81,25 +81,26 @@ int	txtrs_malloc(t_data *g)
 
 int	main(int argc, char **argv)
 {
-	t_data	g;
+	t_data	*g;
+	
+	g = malloc(sizeof(t_data));
 
-	data_init(&g);
-	ft_init(&g);
-	ft_map_volidation(argc, argv, &g);
-	ft_pars_params(argv, &g);
-	if (txtrs_malloc(&g))
+	data_init(g);
+	ft_init(g);
+	ft_map_volidation(argc, argv, g);
+	ft_pars_params(argv, g);
+	if (txtrs_malloc(g))
 		exit(1);
-	load_texture(&g);
-	mlx_loop_hook(g.mlx, &game_loop, &g);
-	mlx_hook(g.win, PRESS, 0, &key_press, &g);
-	mlx_hook(g.win, RELEASE, 0, &key_release, &g);
-	mlx_hook(g.win, 17, 0L, close_win, &g);
+	load_texture(g);
+	mlx_loop_hook(g->mlx, &game_loop, g);
+	mlx_hook(g->win, PRESS, 0, &key_press, g);
+	mlx_hook(g->win, RELEASE, 0, &key_release, g);
+	mlx_hook(g->win, 17, 0L, close_win, g);
 	if (BONUS)
 	{
-		mlx_mouse_move(g.win, WIN_W / 2, WIN_H / 2);
+		mlx_mouse_move(g->win, WIN_W / 2, WIN_H / 2);
 		mlx_mouse_hide();
-		mlx_hook(g.win, MOUSE, 0, mouse_move, &g);
+		mlx_hook(g->win, MOUSE, 0, mouse_move, g);
 	}
-	printf("dir_x - %f dir_y - %f\n", g.p_dir_x, g.p_dir_y);
-	mlx_loop(g.mlx);
+	mlx_loop(g->mlx);
 }

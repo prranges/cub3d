@@ -21,15 +21,15 @@ void	ft_map_record(char **lines, int i, t_data *g)
 	(void)lines;
 	j = 0;
 	k = 0;
-	g->map.map_pars = malloc(sizeof(char *) * g->map.map_size_h);
-	while (j < g->map.map_size_h)
+	g->map.map_pars = malloc(sizeof(char *) * g->map.size_h);
+	while (j < g->map.size_h)
 	{
-		g->map.map_pars[j] = malloc(sizeof(char) * g->map.map_size_l);
-		ft_bchar(g->map.map_pars[j], g->map.map_size_l, ' ');
+		g->map.map_pars[j] = malloc(sizeof(char) * g->map.size_l);
+		ft_bchar(g->map.map_pars[j], g->map.size_l, ' ');
 		j++;
 	}
 	j = 0;
-	while (j < g->map.map_size_h)
+	while (j < g->map.size_h)
 	{
 		k = 0;
 		while (lines[i][k])
@@ -44,8 +44,16 @@ void	ft_map_record(char **lines, int i, t_data *g)
 	}
 	ft_check_border_map_l(g->map.map_pars, g);
 	ft_check_border_map_h(g->map.map_pars, g);
-	ft_check_map_inside_l(g->map.map_pars, g, g->i, g->j);
-	ft_check_map_inside_h(g->map.map_pars, g, g->i, g->j);
+//	if (BONUS)
+//	{
+//		ft_check_map_inside_l_bonus(g->map.map_pars, g, g->itr.i, g->itr.j);
+//		ft_check_map_inside_h_bonus(g->map.map_pars, g, g->itr.i, g->itr.j);
+//	}
+//	else
+//	{
+		ft_check_map_inside_l(g->map.map_pars, g, g->itr.i, g->itr.j);
+		ft_check_map_inside_h(g->map.map_pars, g, g->itr.i, g->itr.j);
+//	}
 }
 
 void	ft_save_param(char *line_split, char **path_texture, t_data *g)
