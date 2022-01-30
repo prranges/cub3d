@@ -38,15 +38,14 @@ void	ft_map_record(char **lines, int i, t_data *g)
 			printf("%c", g->map.map_pars[j][k]);
 			k++;
 		}
-		// free(lines[i]);
 		printf("\n");
 		j++;
 		i++;
 	}
 	ft_check_border_map_l(g->map.map_pars, g);
 	ft_check_border_map_h(g->map.map_pars, g);
-	ft_check_map_inside_l(g->map.map_pars, g, g->itr.i, g->itr.j);
-	ft_check_map_inside_h(g->map.map_pars, g, g->itr.i, g->itr.j);
+//	ft_check_map_inside_l(g->map.map_pars, g, g->itr.i, g->itr.j);
+//	ft_check_map_inside_h(g->map.map_pars, g, g->itr.i, g->itr.j);
 }
 
 void	ft_save_param(char **line_split, char **path_texture, t_data *g)
@@ -58,7 +57,7 @@ void	ft_save_param(char **line_split, char **path_texture, t_data *g)
 		g->map.param_count++;
 	}
 	else
-		ft_error("Error: Params dublicate!");
+		ft_error("Error: Texture doublicate!");
 }
 
 void	ft_save_color(char **line_split, char **color, t_data *g)
@@ -66,7 +65,7 @@ void	ft_save_color(char **line_split, char **color, t_data *g)
 	char	**split_color;
 
 	if (*color)
-		ft_error("Error: Params dublicate!!!");
+		ft_error("Error: Color doublicate!!!");
 	*color = line_split[1];
 	g->map.param_count++;
 	split_color = ft_split(*color, ',');
