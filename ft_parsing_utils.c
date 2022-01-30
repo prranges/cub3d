@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:04:09 by mbalman           #+#    #+#             */
-/*   Updated: 2022/01/29 18:05:27 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/01/30 18:56:08 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,26 @@ int	ft_check_rgb(char **split_color)
 	while (i < 3)
 	{
 		if (ft_strisnum(split_color[i]) && ft_atoi(split_color[i]) <= 255)
+		{	
 			rgb[i] = ft_atoi(split_color[i]);
+			// free(split_color[i]);
+		}
 		else
 			ft_error("Error: This is not num or num > 255");
 		i++;
 	}
 	return (rgb_to_int(rgb[0], rgb[1], rgb[2]));
+}
+
+void	ft_free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

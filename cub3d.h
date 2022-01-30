@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 09:52:52 by prranges          #+#    #+#             */
-/*   Updated: 2022/01/29 19:51:04 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/01/30 18:01:52 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,8 +199,9 @@ void	ft_check_map_inside_h(char **map, t_data *g, int i, int j);
 void	ft_load_map(char **argv, char ***map);
 void	ft_map_lines_check(char **lines, int i, t_data *g);
 void	ft_map_record(char **lines, int i, t_data *g);
-void	ft_save_param(char *line_split, char **path_texture, t_data *g);
+void	ft_save_param(char **line_split, char **path_texture, t_data *g);
 void	ft_save_color(char **line_split, char **color, t_data *g);
 void	ft_map_error(char *error_msg, char error_symbol);
+void	ft_free_array(char **array);
 
 #endif

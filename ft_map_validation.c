@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:46:26 by mbalman           #+#    #+#             */
-/*   Updated: 2022/01/29 18:02:23 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/01/30 16:26:35 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_map_volidation(int argc, char **argv, t_data *g)
 	line = NULL;
 	fd = open(argv[1], O_RDONLY);
 	ft_chek_map_evalible(fd);
+	close(fd);
 }
 
 void	ft_error(char *error_msg)
