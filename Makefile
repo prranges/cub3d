@@ -20,7 +20,6 @@ SRCS	= cub3d.c \
 		  ft_map_parse.c \
 		  ft_map_check_border.c \
 		  ft_map_check_inside.c \
-		  ft_map_check_inside_bonus.c \
 		  ft_parsing_utils.c \
 		  ft_read_map_file.c \
 		  ft_map_check_symbols.c \

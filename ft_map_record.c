@@ -44,8 +44,8 @@ void	ft_map_record(char **lines, int i, t_data *g)
 	}
 	ft_check_border_map_l(g->map.map_pars, g);
 	ft_check_border_map_h(g->map.map_pars, g);
-//	ft_check_map_inside_l(g->map.map_pars, g, g->itr.i, g->itr.j);
-//	ft_check_map_inside_h(g->map.map_pars, g, g->itr.i, g->itr.j);
+	ft_check_map_inside_l(g->map.map_pars, g);
+	ft_check_map_inside_h(g->map.map_pars, g);
 }
 
 void	ft_save_param(char **line_split, char **path_texture, t_data *g)

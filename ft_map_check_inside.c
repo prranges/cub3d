@@ -14,58 +14,59 @@
 
 void	ft_map_error_symbol(char *error_msg, char symbol, int i, int j)
 {
-	printf("Error: %s '%c' h - %d, w - %d\n", error_msg, symbol, i, j);
+	printf("\nError: %s '%c' h - %d, w - %d\n", error_msg, symbol, i, j);
 	exit (1);
 }
 
-//void	ft_check_map_inside_l(char **map, t_data *g, int i, int j)
-//{
-//	i = 0;
-//	j = 0;
-//	while (i < g->map.size_h)
-//	{
-//		j = 0;
-//		while (j < g->map.size_l)
-//		{
-//			while (j < g->map.size_l && map[i][j] != ' ')
-//				j++;
-//			if (j > 0 && map[i][j - 1] != '1')
-//				ft_map_error_symbol("1", map[i][j], i, j);
-//			while (j < g->map.size_l && map[i][j] == ' ')
-//				j++;
-//			if (j < g->map.size_l && map[i][j] != '1')
-//				ft_map_error_symbol("2", map[i][j], i, j);
-//		}
-//		i++;
-//	}
-//}
-//
-//void	ft_check_map_inside_h(char **map, t_data *g, int i, int j)
-//{
-//	i = 0;
-//	j = 0;
-//	while (i < g->map.size_l)
-//	{
-//		j = 0;
-//		while (j < g->map.size_h)
-//		{
-//			printf("1: j - %d, i - %d, c - %c\n", j, i, map[j][i]);
-//			while (j < g->map.size_h && map[j][i] != ' ')
-//				j++;
-//			printf("2: j - %d, i - %d, c - %c\n", j, i, map[j][i]);
-//			if (i > 0 && map[j][i - 1] != '1')
-//				ft_map_error_symbol("1", map[j][i], j, i);
-//			printf("3: j - %d, i - %d, c - %c\n", j, i, map[j][i]);
-//			while (j < g->map.size_h && map[j][i] == ' ')
-//				j++;
-//			printf("4: j - %d, i - %d, c - %c\n", j, i, map[j][i]);
-//			if (j < g->map.size_h && map[j][i] != '1')
-//				ft_map_error_symbol("2", map[j][i], j, i);
-//			printf("5: j - %d, i - %d, c - %c\n", j, i, map[j][i]);
-//		}
-//		i++;
-//	}
-//}
+void	ft_check_map_inside_l(char **map, t_data *g)
+{
+	int	i;
+	int j;
+	
+	i = 0;
+	j = 0;
+	while (i < g->map.size_h)
+	{
+		j = 0;
+		while (j < g->map.size_l - 1)
+		{
+			while (j < g->map.size_l - 1 && map[i][j] != ' ')
+				j++;
+			if (j > 0 && j < g->map.size_l - 1 && map[i][j - 1] != '1')
+				ft_map_error_symbol("Map horizontal contour is unclosed", map[i][j], i, j);
+			while (j < g->map.size_l - 1 && map[i][j] == ' ')
+				j++;
+			if (j < g->map.size_l - 1 && map[i][j] != '1')
+				ft_map_error_symbol("Map horizontal contour is unclosed", map[i][j], i, j);
+		}
+		i++;
+	}
+}
+
+void	ft_check_map_inside_h(char **map, t_data *g)
+{
+	int	i;
+	int j;
+	
+	i = 0;
+	j = 0;
+	while (i < g->map.size_l)
+	{
+		j = 0;
+		while (j < g->map.size_h - 1)
+		{
+			while (j < g->map.size_h - 1 && map[j][i] != ' ')
+				j++;
+			if (j > 0 && j < g->map.size_h - 1 && map[j - 1][i] != '1')
+				ft_map_error_symbol("Map vertical contour is unclosed", map[j][i], j, i);
+			while (j < g->map.size_h - 1 && map[j][i] == ' ')
+				j++;
+			if (j < g->map.size_h - 1 && map[j][i] != '1')
+				ft_map_error_symbol("Map vertical contour is unclosed", map[j][i], j, i);
+		}
+		i++;
+	}
+}
 
 //void	ft_check_map_inside_l(char **map, t_data *g, int i, int j)
 //{
