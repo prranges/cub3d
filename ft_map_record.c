@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_record.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 12:05:40 by mbalman           #+#    #+#             */
-/*   Updated: 2022/01/30 19:04:17 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/02/02 11:42:12 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_map_record(char **lines, int i, t_data *g)
 	int	j;
 	int	k;
 
-	(void)i;
-	(void)lines;
 	j = 0;
 	k = 0;
 	g->map.map_pars = malloc(sizeof(char *) * g->map.size_h);
@@ -35,20 +33,14 @@ void	ft_map_record(char **lines, int i, t_data *g)
 		while (lines[i][k])
 		{
 			g->map.map_pars[j][k] = lines[i][k];
-			printf("%c", g->map.map_pars[j][k]);
 			k++;
 		}
-		printf("\n");
 		j++;
 		i++;
 	}
-	ft_check_border_map_l(g->map.map_pars, g);
-	ft_check_border_map_h(g->map.map_pars, g);
-	ft_check_map_inside_l(g->map.map_pars, g);
-	ft_check_map_inside_h(g->map.map_pars, g);
 }
 
-void	ft_save_param(char **line_split, char **path_texture, t_data *g)
+void	ft_save_texture(char **line_split, char **path_texture, t_data *g)
 {
 	if (!*path_texture)
 	{
@@ -57,7 +49,7 @@ void	ft_save_param(char **line_split, char **path_texture, t_data *g)
 		g->map.param_count++;
 	}
 	else
-		ft_error("Error: Texture doublicate!");
+		ft_error("Error: Texture is doublicated!");
 }
 
 void	ft_save_color(char **line_split, char **color, t_data *g)
@@ -65,7 +57,7 @@ void	ft_save_color(char **line_split, char **color, t_data *g)
 	char	**split_color;
 
 	if (*color)
-		ft_error("Error: Color doublicate!!!");
+		ft_error("Error: Color parameter is doublicated!!!");
 	*color = line_split[1];
 	g->map.param_count++;
 	split_color = ft_split(*color, ',');

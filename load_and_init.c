@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_and_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prranges <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:34:09 by prranges          #+#    #+#             */
-/*   Updated: 2022/01/27 16:34:10 by prranges         ###   ########.fr       */
+/*   Updated: 2022/02/02 12:00:07 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	load_texture(t_data *g)
 void	data_init(t_data *g)
 {
 	g->mlx = mlx_init();
-	g->p_dir_x = -1.0; //начальный вектор направления
+	g->p_dir_x = -1.0;
 	g->p_dir_y = 0.0;
-	g->cam_plane_x = 0.0; //версия плоскости камеры для 2d raycaster
+	g->cam_plane_x = 0.0;
 	g->cam_plane_y = 0.66;
 	g->k.key_left = 0;
 	g->k.key_up = 0;
@@ -66,13 +66,13 @@ void	data_init(t_data *g)
 		&g->img.size_l, &g->img.endian);
 }
 
-void ft_init(t_data *g)
+void	ft_init(t_data *g)
 {
-	    g->map.path_north_texture = NULL;
-		g->map.path_south_texture = NULL;
-		g->map.path_east_texture = NULL;
-		g->map.path_west_texture = NULL;
-		g->map.param_count = 0;
-		g->map.size_h = 0;
-		g->map.size_l = 0;
+	g->map.path_north_texture = NULL;
+	g->map.path_south_texture = NULL;
+	g->map.path_east_texture = NULL;
+	g->map.path_west_texture = NULL;
+	g->map.param_count = 0;
+	g->map.size_h = 0;
+	g->map.size_l = 0;
 }

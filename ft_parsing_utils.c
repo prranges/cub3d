@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:04:09 by mbalman           #+#    #+#             */
-/*   Updated: 2022/01/30 18:56:08 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/02/02 10:21:54 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,9 @@ int	ft_check_rgb(char **split_color)
 	while (i < 3)
 	{
 		if (ft_strisnum(split_color[i]) && ft_atoi(split_color[i]) <= 255)
-		{	
 			rgb[i] = ft_atoi(split_color[i]);
-			// free(split_color[i]);
-		}
-		else
-			ft_error("Error: This is not num or num > 255");
+		else if (!ft_strisnum(split_color[i]))
+			ft_error("Error: Color is not a num, negative or num < 0 or > 255");
 		i++;
 	}
 	return (rgb_to_int(rgb[0], rgb[1], rgb[2]));

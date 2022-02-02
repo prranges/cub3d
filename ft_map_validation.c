@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_validation.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:46:26 by mbalman           #+#    #+#             */
-/*   Updated: 2022/01/30 16:26:35 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/02/02 09:56:53 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_chek_name_map(char **argv)
 	int	l;
 
 	l = (int)ft_strlen(argv[1]);
-	if (argv[1][l - 1 ] == 'b' && argv[1][l - 2] == 'u' \
+	if (argv[1][l - 1] == 'b' && argv[1][l - 2] == 'u' \
 	&& argv[1][l - 3] == 'c' && argv[1][l - 4] == '.')
 		return ;
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walls_01.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prranges <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 10:08:45 by prranges          #+#    #+#             */
-/*   Updated: 2022/01/24 10:08:47 by prranges         ###   ########.fr       */
+/*   Updated: 2022/02/02 13:58:21 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ void	perform_dda(t_data *g, t_wall *w)
 		}
 		//Проверьте, ударился ли луч о стену
 		if (g->map.map_pars[w->map_x][w->map_y] == '1')
-		{
-//			printf("6\n");
 			w->hit = 1;
-		}
 		if (g->map.map_pars[w->map_x][w->map_y] == '2' && BONUS)
 			w->hit = 2;
 	}

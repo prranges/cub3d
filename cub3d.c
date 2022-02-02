@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 09:52:40 by prranges          #+#    #+#             */
-/*   Updated: 2022/01/30 17:42:10 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/02/02 09:26:08 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	txtrs_malloc(t_data *g)
 	int		i;
 
 	j = 0;
-	g->txtrs = (int **)malloc(sizeof(int *) * 5); // 5 текструр
+	g->txtrs = (int **)malloc(sizeof(int *) * 5);
 	if (!g->txtrs)
 		return (-1);
 	i = 0;
@@ -82,9 +82,8 @@ int	txtrs_malloc(t_data *g)
 int	main(int argc, char **argv)
 {
 	t_data	*g;
-	
-	g = malloc(sizeof(t_data));
 
+	g = malloc(sizeof(t_data));
 	data_init(g);
 	ft_init(g);
 	ft_map_volidation(argc, argv, g);

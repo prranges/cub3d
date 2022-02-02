@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prranges <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:27:48 by prranges          #+#    #+#             */
-/*   Updated: 2022/01/27 16:27:52 by prranges         ###   ########.fr       */
+/*   Updated: 2022/02/02 10:11:51 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	draw_minimap(t_data *g, t_minimap *m)
 		put_square(g, m->xx, m->yy, 13158600);
 	if (g->map.map_pars[m->y][m->x] == '1')
 		put_square(g, m->xx, m->yy, 200);
-	if (g->map.map_pars[m->y][m->x] == '2' || g->map.map_pars[m->y][m->x] == '3')
+	if (g->map.map_pars[m->y][m->x] == '2'
+	|| g->map.map_pars[m->y][m->x] == '3')
 		put_square(g, m->xx, m->yy, 6605050);
 	put_square(g, (int)g->p_pos_y * MINIMAP, \
 		(int)g->p_pos_x * MINIMAP, 16711680);

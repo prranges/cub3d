@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_map_file.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:54:06 by mbalman           #+#    #+#             */
-/*   Updated: 2022/01/30 18:32:43 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/02/02 14:14:33 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,15 @@ int	ft_size_map(char **argv)
 	return (size);
 }
 
-void	ft_load_map(char **argv, char ***map)
+void	ft_load_map(char **argv, char ***map, int i)
 {
 	int		fd;
 	int		end_file;
-	int		i;
 	int		size;
 	char	*str;
 	char	**temp;
 
 	temp = NULL;
-	i = 0;
 	end_file = 1;
 	size = ft_size_map(argv);
 	temp = (char **)malloc(sizeof(char *) * (size + 1));

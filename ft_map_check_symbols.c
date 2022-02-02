@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_check_symbols.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:57:34 by mbalman           #+#    #+#             */
-/*   Updated: 2022/01/29 19:50:16 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/02/02 10:29:12 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,30 +60,39 @@ void	ft_map_symbol_check(t_data *g, char c, int *p_flag)
 		ft_map_error("Map contains more then 1 player position", c);
 }
 
+void	ft_save_map_size(t_data *g, char *line)
+{
+	if ((int)ft_strlen(line) > g->map.size_l)
+		g->map.size_l = (int)ft_strlen(line);
+	if (ft_strcmp (line, ""))
+		g->map.size_h++;
+	else
+		ft_error("Error: Map contains new lines!");
+}
+
 void	ft_map_lines_check(char **lines, int i, t_data *g)
 {
-	g->itr.j = 0;
-	g->itr.k = i;
+	int	j;
+	int	k;
+
+	j = 0;
+	k = i;
 	g->position_flag = 0;
 	while (lines[i])
 	{
-		g->itr.j = -1;
-		while (lines[i][++g->itr.j])
+		j = 0;
+		while (lines[i][j])
 		{
-			ft_map_symbol_check(g, lines[i][g->itr.j], &g->position_flag);
-			if (lines[i][g->itr.j] == 'N' || lines[i][g->itr.j] == 'S'
-				|| lines[i][g->itr.j] == 'W' || lines[i][g->itr.j] == 'E')
+			ft_map_symbol_check(g, lines[i][j], &g->position_flag);
+			if (lines[i][j] == 'N' || lines[i][j] == 'S'
+			|| lines[i][j] == 'W' || lines[i][j] == 'E')
 			{
-				ft_save_player_position(g, lines[i][g->itr.j], i - g->itr.k, g->itr.j);
-				lines[i][g->itr.j] = '0';
+				ft_save_player_position(g, lines[i][j], i - k, j);
+				lines[i][j] = '0';
 			}
+			j++;
 		}
-		if ((int)ft_strlen(lines[i]) > g->map.size_l)
-			g->map.size_l = (int)ft_strlen(lines[i]);
-		if (ft_strcmp (lines[i], ""))
-			g->map.size_h++;
-		else
-			ft_error("Error: Map contains new lines!");
+		ft_save_map_size(g, lines[i]);
 		i++;
 	}
 	if (!g->position_flag)

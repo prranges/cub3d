@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 09:52:52 by prranges          #+#    #+#             */
-/*   Updated: 2022/01/30 18:01:52 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/02/02 14:13:29 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,17 +141,17 @@ typedef struct s_iterators
 
 typedef struct s_data
 {
-	double		p_pos_x; // вектор положения игрока
-	double		p_pos_y; //
-	double		p_dir_x; // направление игрока
-	double		p_dir_y; // плоскость камеры игрока
+	double		p_pos_x;
+	double		p_pos_y;
+	double		p_dir_x;
+	double		p_dir_y;
 	double		cam_plane_x;
 	double		cam_plane_y;
 	void		*mlx;
 	void		*win;
 	t_keys		k;
 	t_img		img;
-	int			screen_buf[WIN_H][WIN_W]; // буфер по размеру экрана
+	int			screen_buf[WIN_H][WIN_W];
 	int			**txtrs;
 	double		move_speed;
 	double		rot_speed;
@@ -194,13 +194,14 @@ void	ft_check_border_map_l(char **map, t_data *g);
 void	ft_check_border_map_h(char **map, t_data *g);
 void	ft_check_map_inside_l(char **map, t_data *g);
 void	ft_check_map_inside_h(char **map, t_data *g);
-void	ft_load_map(char **argv, char ***map);
+void	ft_load_map(char **argv, char ***map, int i);
 void	ft_map_lines_check(char **lines, int i, t_data *g);
 void	ft_map_record(char **lines, int i, t_data *g);
-void	ft_save_param(char **line_split, char **path_texture, t_data *g);
+void	ft_save_param(t_data *g, char **line_split);
+void	ft_save_texture(char **line_split, char **path_texture, t_data *g);
 void	ft_save_color(char **line_split, char **color, t_data *g);
 void	ft_map_error(char *error_msg, char error_symbol);
-void	ft_map_error_symbol(char *error_msg, char symbol, int i, int j);
+void	ft_map_error_symbol(char error, char symbol, int i, int j);
 void	ft_free_array(char **array);
 
 #endif
