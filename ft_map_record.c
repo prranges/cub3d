@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_record.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 12:05:40 by mbalman           #+#    #+#             */
-/*   Updated: 2022/02/02 11:42:12 by prranges         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:40:34 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void	ft_map_record(char **lines, int i, t_data *g)
 
 void	ft_save_texture(char **line_split, char **path_texture, t_data *g)
 {
+	if (line_split[2])
+		ft_error("Error: Bad parameters!");
+	ft_texture_validation(line_split[1]);
 	if (!*path_texture)
 	{
 		*path_texture = line_split[1];
@@ -56,6 +59,8 @@ void	ft_save_color(char **line_split, char **color, t_data *g)
 {
 	char	**split_color;
 
+	if (line_split[2])
+		ft_error("Error: Bad parameters!");
 	if (*color)
 		ft_error("Error: Color parameter is doublicated!!!");
 	*color = line_split[1];

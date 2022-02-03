@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 09:52:40 by prranges          #+#    #+#             */
-/*   Updated: 2022/02/02 09:26:08 by prranges         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:56:32 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int	close_win(t_data *g)
 {
-	int	i;
-
-	i = -1;
-	while (g->map.map_pars[++i])
-		free(g->map.map_pars[i]);
 	if (g->mlx)
 	{
 		mlx_clear_window(g->mlx, g->win);

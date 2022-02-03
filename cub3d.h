@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 09:52:52 by prranges          #+#    #+#             */
-/*   Updated: 2022/02/02 14:13:29 by prranges         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:48:00 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,26 +73,25 @@ typedef struct s_map // mbalman
 
 typedef struct s_wall
 {
-	double	camera_x; //координата x на плоскости камеры, которую представляет текущая координата x экрана, сделанная таким образом, что правая сторона экрана получает координату 1, центр экрана получает координату 0, а левая сторона экрана получает координату -1. Из этого можно вычислить направление луча, как было объяснено ранее: как сумму вектора направления и части плоского вектора. Это необходимо сделать как для координат x, так и для y вектора (поскольку добавление двух векторов — это добавление их координат x и добавление их координат y).
+	double	camera_x;
 	double	ray_dir_x;
 	double	ray_dir_y;
-	int		map_x; //mapX и mapY представляют текущую клетку карты, в которой находится луч
-	int		map_y;
-	//длина луча от текущей позиции до следующей x или y-стороны
-	double	side_dist_x; //sideDistX и sideDistY изначально представляют собой расстояние, которое луч должен пройти от своей начальной позиции до первой стороны x и первой стороны y. Позже в коде они будут увеличиваться по мере выполнения шагов.
-	double	side_dist_y; //deltaDistX и deltaDistY — это расстояние, которое должен пройти луч, чтобы пройти от 1 стороны x до следующей стороны x или от 1 стороны y до следующей стороны y.
+	int		map_x;
+	int		map_y;	
+	double	side_dist_x;
+	double	side_dist_y;
 	double	delta_dist_x;
 	double	delta_dist_y;
-	double	perp_wall_dist; // перпендикулярное экрану расстояние до стены.
+	double	perp_wall_dist;
 	int		step_x;
 	int		step_y;
-	int		hit; //hit используется для определения того, может ли быть завершен предстоящий цикл, а side будет содержать, была ли ударена сторона x или сторона y стены. Если была поражена сторона x, сторона устанавливается равной 0, если была поражена сторона y, сторона будет равна 1. Под стороной x и стороной y я имею в виду линии сетки, которые являются границами между двумя квадратами. .
-	int		side; //был ли удар о стену NS или EW?
-	int		line_height; //высота вертикальной линии, которая должна быть нарисована
+	int		hit;
+	int		side;
+	int		line_height;
 	int		draw_start;
 	int		draw_end;
 	int		txtr_num;
-	double	wall_x; //где именно была пробита стена. Значение wall_ч представляет собой точное значение места удара по стене, а не просто целочисленные координаты стены. Это необходимо, чтобы знать, какую x-координату текстуры мы должны использовать. Это вычисляется, сначала вычисляя точную координату x или y в мире, а затем вычитая из нее целочисленное значение стены. Обратите внимание, что даже если она называется wallX, на самом деле это y-координата стены, если side==1, но это всегда x-координата текстуры.
+	double	wall_x;
 	int		txtr_x;
 	double	step;
 	double	txtr_pos;
@@ -132,13 +131,6 @@ typedef struct s_keys
 	int		key_open;
 }				t_keys;
 
-typedef struct s_iterators
-{
-	int		i;
-	int		j;
-	int		k;
-}				t_iterators;
-
 typedef struct s_data
 {
 	double		p_pos_x;
@@ -157,7 +149,6 @@ typedef struct s_data
 	double		rot_speed;
 	t_map		map;
 	int			position_flag;
-	t_iterators	itr;
 }				t_data;
 
 void	data_init(t_data *g);
@@ -203,5 +194,6 @@ void	ft_save_color(char **line_split, char **color, t_data *g);
 void	ft_map_error(char *error_msg, char error_symbol);
 void	ft_map_error_symbol(char error, char symbol, int i, int j);
 void	ft_free_array(char **array);
+void	ft_texture_validation(char *path);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.c                                             :+:      :+:    :+:   */
+/*   keys_01.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prranges <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 12:32:18 by prranges          #+#    #+#             */
-/*   Updated: 2022/01/23 12:32:20 by prranges         ###   ########.fr       */
+/*   Updated: 2022/02/03 17:01:09 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	player_rotate_right(t_data *g)
 {
 	double	old_dir_x;
 	double	old_plane_x;
-	//both camera direction and camera plane must be rotated
+
 	old_dir_x = g->p_dir_x;
 	g->p_dir_x = g->p_dir_x * cos(-g->rot_speed) - \
 		g->p_dir_y * sin(-g->rot_speed);
@@ -65,7 +65,7 @@ void	player_rotate_left(t_data *g)
 {
 	double	old_dir_x;
 	double	old_plane_x;
-	//both camera direction and camera plane must be rotated
+
 	old_dir_x = g->p_dir_x;
 	g->p_dir_x = g->p_dir_x * cos(g->rot_speed) - \
 		g->p_dir_y * sin(g->rot_speed);

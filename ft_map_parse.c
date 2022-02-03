@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_parse.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 14:34:28 by mbalman           #+#    #+#             */
-/*   Updated: 2022/02/02 14:13:45 by prranges         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:51:43 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,6 @@ void	ft_pars_params(char **argv, t_data *g)
 	i = 0;
 	map = NULL;
 	ft_load_map(argv, &map, 0);
-	// printf("\n \n ALL MAPA\n");
-	// while (map[i])
-	// {
-	// 	printf("%s\n", map[i]);
-	// 	i++;
-	// }
 	i = ft_find_params(&map, g, 0);
 	ft_map_lines_check(map, i, g);
 	ft_map_record(map, i, g);
