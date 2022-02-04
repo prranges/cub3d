@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_validation.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prranges <prranges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:46:26 by mbalman           #+#    #+#             */
-/*   Updated: 2022/02/03 16:37:58 by mbalman          ###   ########.fr       */
+/*   Updated: 2022/02/03 18:20:44 by prranges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	ft_texture_validation(char *path)
 {
 	int	fd;
 
+	if (ft_strlen(path) < 4)
+		ft_error("Error: Texture file not found");
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		ft_error("Error: Texture file not found");
