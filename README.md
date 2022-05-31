@@ -18,11 +18,13 @@ This project also enables us to improve skills in: windows, colors, events, fill
 
 ```shell
 $ git clone https://github.com/prranges/cub3d
-$ make
+$ make - for mandatory part
+$ make bonus - for bonus part
 $ ./cub3d maps/map_or_map_bonus.cub
 ```
 
-- Press ```W / A / S / D``` key to move and ```Left / Right``` key to rotate
+- Press ```W / A / S / D``` key to move
+- Press ```Space``` key to open or close the door. Also you can use a mouse to rotate.
 
 ## Screenshot
 
