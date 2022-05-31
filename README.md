@@ -3,6 +3,8 @@
 
 This project also enables us to improve skills in: windows, colors, events, fill shapes, etc.
 
+This is a group project completed by [prranges](https://github.com/prranges) & [mbalman](https://github.com/electroautomatic)
+
 ## Technical considerations
 
 - Allowed functions: ```open```, ```close```, ```read```, ```write```, ```malloc```, ```free```, ```perror```, ```strerror```, ```exit```, all functions of the ```math``` library and the ```MinilibX``` library
